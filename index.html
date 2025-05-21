@@ -802,7 +802,7 @@
             const inputErroSorting = document.getElementById('inputErroSorting');
             
             // Esconde ou mostra o botão de configuração
-            if (perfilAtual === 'volumoso') {
+            if (perfilAtual === 'admin') {
                 btnConfig.classList.remove('hidden');
             } else {
                 btnConfig.classList.add('hidden');
@@ -878,7 +878,7 @@
                     perfilAtual = 'volumoso';
                     document.getElementById('modalSenha').style.display = 'none';
                     atualizarPermissoes();
-                } else if (senha === "fadmin" && perfilAlvo === "admin") {
+                } else if (senha === "admin123" && perfilAlvo === "admin") {
                     perfilAtual = 'admin';
                     document.getElementById('modalSenha').style.display = 'none';
                     atualizarPermissoes();
