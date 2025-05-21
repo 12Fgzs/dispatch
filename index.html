@@ -878,11 +878,13 @@
                     perfilAtual = 'volumoso';
                     document.getElementById('modalSenha').style.display = 'none';
                     atualizarPermissoes();
-                } else if (senha === "admin123" && perfilAlvo === "admin") {
+                }
+                if (senha === "admin123" && perfilAlvo === "admin") {
                     perfilAtual = 'admin';
                     document.getElementById('modalSenha').style.display = 'none';
                     atualizarPermissoes();
-                } else {
+                } 
+                else {
                     alert('Senha incorreta ou erro de conexão. Tente novamente.');
                     document.getElementById('inputSenha').value = '';
                     document.getElementById('inputSenha').focus();
