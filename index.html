@@ -337,7 +337,7 @@
 <body class="p-4">
     <!-- Elemento de áudio oculto para notificação -->
     <audio id="notificacaoSom" preload="auto" style="display: none;">
-        <source src="https://cdn.freesound.org/previews/536/536108_3797507-lq.mp3" type="audio/mpeg">
+        <source src="https://cdn.pixabay.com/download/audio/2022/01/07/audio_455a3917eb.mp3?filename=message-13716.mp3" type="audio/mpeg">
     </audio>
     
     <div class="max-w-6xl mx-auto">
@@ -506,9 +506,12 @@
         function tocarNotificacao() {
             if (perfilAtual === 'volumoso' || perfilAtual === 'admin') {
                 const audio = document.getElementById('notificacaoSom');
-                if (audio && notificacaoAtivada) {
-                    audio.currentTime = 0;
-                    audio.play().catch(e => console.log("Erro ao tocar notificação:", e));
+                if (audio) {
+                    audio.currentTime = 0; // Reiniciar o áudio
+                    audio.play().catch(e => {
+                        console.error("Erro ao tocar a notificação:", e);
+                        alert("Por favor, permita a reprodução de áudio na página."); // Sugestão para o usuário
+                    });
                 }
             }
         }
