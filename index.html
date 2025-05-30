@@ -3,535 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> EXPEDIÇÃO LM-HUB </title>
+    <title>EXPEDIÇÃO LM-HUB</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* === CONFIGURAÇÕES GERAIS === */
-        * {
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #39A4AA 0%, #395355 100%);
-            color: #334155;
-            line-height: 1.6;
+            font-family: Arial, sans-serif;
+            background-color: #313131;
         }
-
-        /* === LAYOUT PRINCIPAL === */
+        /* Layout principal usando grid */
         .main-layout {
             display: grid;
-            grid-template-columns: 280px 1fr;
+            grid-template-columns: 180px 1fr;
             grid-template-rows: auto auto 1fr;
             grid-template-areas:
                 "header header"
                 "sidebar top"
                 "sidebar bottom";
-            gap: 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
+            gap: 16px;
         }
-
+        /* Áreas do grid */
         .header-area {
             grid-area: header;
         }
-
         .sidebar-area {
             grid-area: sidebar;
         }
-
         .top-area {
             grid-area: top;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 16px;
         }
-
         .bottom-area {
             grid-area: bottom;
         }
 
-        /* === CABEÇALHO === */
         .cabecalho {
-            background: linear-gradient(135deg, #FF6600 0%, #e55d00 100%);
-            color: white;
+            background-color: #FF6A1A;
+            color: rgb(255, 255, 255);
             text-align: center;
-            font-weight: 700;
-            font-size: 28px;
-            padding: 20px;
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(255, 102, 0, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            font-weight: bold;
+            font-size: 24px;
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 0;
+            text-shadow: 5px 5px 11px rgb(0, 0, 0);
         }
-
-        /* === CARDS === */
         .card {
-            background: #dbdbdb;
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            background-color: #6b6b6b;
+            border-radius: 12px;
+            padding: 16px;
+            color: rgb(0, 0, 0);
             height: 100%;
         }
-
-        .card:hover {
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
-            transform: translateY(-2px);
-        }
-
         .titulo-card {
-            font-weight: 600;
+            font-weight: bold;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             font-size: 18px;
-            color: #FF6600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            color: #FF6A1A;
+            text-shadow: 2px 2px 5px rgb(0, 0, 0);
         }
-
-        /* === CARD ERRO DE SORTING ATUALIZADO === */
-        .card-erro-sorting {
-            background: #dbdbdb;
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            transition: all 0.3s ease;
-        }
-
-        .card-erro-sorting:hover {
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
-            transform: translateY(-2px);
-        }
-
-        .titulo-erro-sorting {
-            font-weight: 600;
+        .fontalt {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             font-size: 18px;
-            color: #FF6600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            color: #ffffff;
         }
-
-        .instrucao-erro {
-            text-align: center;
-            margin-bottom: 16px;
-            font-size: 14px;
-            color: #64748b;
-            font-weight: 500;
-        }
-
-        .lista-erro-sorting {
-            overflow-y: auto;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            max-height: 400px;
-        }
-
-        .erro-item {
-            background: #dbdbdb;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 12px 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 500;
-            color: #475569;
-            transition: all 0.2s ease;
-        }
-
-        .erro-item:hover {
-            background: #f1f5f9;
-            border-color: #FF6600;
-        }
-
-        /* === BOTÕES === */
-        .btn-primary {
-            background: linear-gradient(135deg, #FF6600 0%, #e55d00 100%);
-            color: white;
-            font-weight: 600;
-            padding: 12px 32px;
+        .btn-solicitar {
+            background-color: #FF6A1A;
+            color: black;
+            font-weight: bold;
+            padding: 8px 24px;
             border: none;
-            border-radius: 12px;
+            border-radius: 20px;
             cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 16px rgba(255, 102, 0, 0.3);
+            font-size: 18px;
         }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(255, 102, 0, 0.4);
+        .btn-solicitar:hover {
+            background-color: #e55e10;
         }
-
-        .btn-primary:active {
-            transform: translateY(0);
-        }
-
-        .btn-success {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        .btn-ok {
+            background-color: #00AA00;
             color: white;
             border: none;
-            width: 45px;
-            height: 32px;
-            border-radius: 8px;
-            font-weight: 600;
+            width: 40px;
+            height: 28px;
+            border-radius: 4px;
+            font-weight: bold;
             cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
         }
-
-        .btn-success:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
-        }
-
-        .btn-danger {
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        .btn-x {
+            background-color: #FF0000;
             color: white;
             border: none;
-            width: 45px;
-            height: 32px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
-        }
-
-        .btn-danger:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
-        }
-
-        .btn-remover-erro {
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-            color: white;
-            border: none;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 14px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
-        }
-
-        .btn-remover-erro:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
-        }
-
-        .btn-config {
-            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 12px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
-        }
-
-        .btn-config:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
-        }
-
-        /* === INPUTS === */
-        .input-field {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: white;
-            color: #334155;
-            font-weight: 500;
-        }
-
-        .input-field:focus {
-            outline: none;
-            border-color: #FF6600;
-            box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.1);
-        }
-
-        .input-field::placeholder {
-            color: #94a3b8;
-            font-weight: 400;
-        }
-
-        /* === SELECT === */
-        .select-perfil {
-            padding: 12px 16px;
-            border-radius: 12px;
-            font-weight: 600;
-            border: 2px solid #e2e8f0;
-            background: white;
-            color: #334155;
-            transition: all 0.3s ease;
+            width: 40px;
+            height: 28px;
+            border-radius: 4px;
+            font-weight: bold;
             cursor: pointer;
         }
-
-        .select-perfil:focus {
-            outline: none;
-            border-color: #FF6600;
-            box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.1);
-        }
-
-        /* === TABELAS === */
         .tabela-pedidos {
             width: 100%;
             border-collapse: collapse;
             text-align: center;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+            color: black;
         }
-
         .tabela-pedidos th {
-            background: linear-gradient(135deg, #FF6600 0%, #e55d00 100%);
-            color: white;
-            padding: 16px 12px;
-            font-weight: 600;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            background-color: #cecece;
+            padding: 8px;
+            font-weight: bold;
         }
-
         .tabela-pedidos td {
-            padding: 16px 12px;
-            border-bottom: 1px solid #f1f5f9;
+            padding: 8px;
             vertical-align: middle;
-            color: #475569;
-            font-weight: 500;
         }
-
-        .tabela-pedidos tr:hover {
-            background: #f8fafc;
-        }
-
         .tabela-rotas {
             width: 100%;
             border-collapse: collapse;
-            border-radius: 12px;
-            overflow: hidden;
+            border: 1px solid #ccc;
             text-align: center;
-            background: white;
+            background-color: white;
+            color: black;
             font-size: 12px;
-            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
         }
-
         .tabela-rotas th {
-            background: linear-gradient(135deg, #FF6600 0%, #e55d00 100%);
-            color: white;
-            padding: 12px 8px;
-            font-weight: 600;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            background-color: #FF6A1A;
+            padding: 4px;
+            font-weight: bold;
+            white-space: nowrap;
         }
-
         .tabela-rotas td {
-            padding: 8px 6px;
-            border-bottom: 1px solid #f1f5f9;
-            font-weight: 500;
-            color: #475569;
+            padding: 2px;
+            border: 1px solid #ddd;
+            white-space: nowrap;
         }
-
         .marca-saiu {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            background-color: #00AA00;
             color: white;
             text-align: center;
-            font-weight: 600;
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-weight: bold;
         }
-
-        /* === ELEMENTOS ESPECÍFICOS === */
         .volumosos {
-            color: #FF6600;
-            font-weight: 700;
-            font-size: 24px;
+            color: #FF6A1A;
+            font-weight: bold;
+            font-size: 25px
         }
-
         .totais-info {
-            background: white;
-            color: #FF6600;
-            border-radius: 12px;
-            padding: 8px 16px;
-            font-weight: 600;
-            font-size: 14px;
-            box-shadow: 0 2px 8px rgba(255, 102, 0, 0.2);
-            border: 2px solid rgba(255, 102, 0, 0.1);
+            background-color: #FF6A1A;
+            color: rgb(46, 46, 46);
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: inline-block;
+            font-size: 15px;
         }
-
-        .fontalt {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 16px;
-            color: #64748b;
-            font-weight: 500;
+        .select-perfil {
+            padding: 8px;
+            border-radius: 6px;
+            font-weight: bold;
+            border: 2px solid #FF6A1A;
         }
-
-        /* === MODAIS === */
-        #modalSenha,
-        #modalConfigRotas {
+        #modalSenha, #modalConfigRotas {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px);
+            background-color: rgba(0,0,0,0.7);
             z-index: 1000;
             justify-content: center;
             align-items: center;
         }
-
-        .modal-content,
-        .config-modal-content {
-            background: white;
-            padding: 32px;
-            border-radius: 20px;
-            width: 450px;
+        .modal-content {
+            background-color: white;
+            padding: 24px;
+            border-radius: 12px;
+            width: 400px;
             max-width: 90%;
-            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-
         .config-modal-content {
+            background-color: white;
+            padding: 24px;
+            border-radius: 12px;
+            width: 400px;
+            max-width: 90%;
             max-height: 90vh;
             overflow-y: auto;
         }
-
-        /* === ESTADOS === */
         .disabled {
-            opacity: 0.5;
+            opacity: 0.6;
             pointer-events: none;
-            filter: grayscale(50%);
         }
-
-        /* === INDICADORES === */
         .status-sincronizacao {
             font-size: 12px;
-            color: #c9c9c9;
+            color: #666;
             text-align: center;
-            margin-top: 16px;
-            font-weight: 500;
+            margin-top: 4px;
         }
-
-        .sync-indicator {
+        .spinner {
             display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: #10b981;
+            width: 12px;
+            height: 12px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
             border-radius: 50%;
-            margin-right: 8px;
-            animation: pulse 2s infinite;
+            border-top-color: #FF6A1A;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 4px;
         }
-
-        .sync-indicator.syncing {
-            background: #FF6600;
-            animation: pulse 0.5s infinite;
+        .btn-config {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            margin-left: 8px;
         }
-
-        /* === CONFIGURAÇÕES === */
+        .btn-config:hover {
+            background-color: #555;
+        }
+        .btn-config.hidden {
+            display: none;
+        }
         .checkbox-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
             justify-content: center;
             margin-bottom: 24px;
         }
-
         .config-letra {
             display: flex;
             align-items: center;
-            background: #f8fafc;
-            padding: 12px 16px;
-            border-radius: 8px;
-            border: 2px solid #e2e8f0;
-            transition: all 0.2s ease;
+            background: #f5f5f5;
+            padding: 8px;
+            border-radius: 4px;
         }
-
-        .config-letra:hover {
-            border-color: #FF6600;
-            background: #fef3f0;
-        }
-
         .config-letra input[type="radio"] {
             margin-right: 8px;
-            accent-color: #FF6600;
         }
-
-        /* === LAYOUT RESPONSIVO === */
+        /* Estilo para o card de ERRO DE SORTING */
+        .card-erro-sorting {
+            background-color: #FF6A1A;
+            border-radius: 12px;
+            padding: 16px;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            gap: 5px;
+        }
+        .titulo-erro-sorting {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 1px;
+            font-size: 18px;
+            white-space: normal;
+        }
+        .instrucao-erro {
+            text-align: center;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        .lista-erro-sorting {
+            overflow-y: auto;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+            max-height: 100%;
+        }
+        .erro-item {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        /* Correção para o bug de layout nas tabelas de rotas */
         .tabelas-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            background: linear-gradient(135deg, #dbdbdb 0%, #c2c2c2 100%);
-            padding: 24px;
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(255, 102, 0, 0.2);
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Estilo específico para o card lateral de erro de sorting */
+        .sidebar-card {
+            height: 100%;
+            position: relative;
+            padding-left: 30px; /* Espaço para o título girado */
+            display: flex;
+            flex-direction: column;
         }
 
-        /* === ANIMAÇÕES === */
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.5;
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .card,
-        .card-erro-sorting {
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        /* === RESPONSIVIDADE === */
-        @media (max-width: 1024px) {
+        @media (max-width: 768px) {
             .main-layout {
                 grid-template-columns: 1fr;
                 grid-template-areas:
@@ -539,340 +310,289 @@
                     "sidebar"
                     "top"
                     "bottom";
-                padding: 16px;
             }
-
             .top-area {
                 grid-template-columns: 1fr;
             }
-
-            .cabecalho {
-                flex-direction: column;
-                gap: 12px;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 768px) {
             .tabelas-container {
                 grid-template-columns: repeat(2, 1fr);
             }
-
-            .cabecalho {
-                font-size: 20px;
-                padding: 16px;
+            .titulo-erro-sorting {
+                transform: none;
+                position: static;
+                margin-bottom: 10px;
             }
-
-            .card,
-            .card-erro-sorting {
-                padding: 16px;
+            .sidebar-card {
+                padding-left: 0;
             }
         }
 
         @media (max-width: 480px) {
             .tabelas-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(1, 1fr);
             }
-
-            .main-layout {
-                padding: 12px;
-                gap: 12px;
-            }
-        }
-
-        /* Rodapé animado */
-        .footer-marquee {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-            background: linear-gradient(45deg, #2c3e50, #34495e);
-            color: #ecf0f1;
-            padding: 12px 0;
-            overflow: hidden;
-            z-index: 1000;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .marquee-content {
-            display: inline-block;
-            white-space: nowrap;
-            animation: marquee 30s linear infinite;
-            font-weight: bold;
-            font-size: 1.1em;
-            letter-spacing: 1px;
-        }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX(100%);
-            }
-
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        /* Adicionar espaço para o rodapé */
-        body {
-            padding-bottom: 80px;
         }
     </style>
 </head>
-<footer class="footer-marquee">
-    <div class="marquee-content">
-        NOS COMPROMETEMOS - PERMANECEMOS HUMILDES - VAMOS MAIS RÁPIDO - SERVIMOS - NOS ADAPTAMOS - NOS COMPROMETEMOS -
-        PERMANECEMOS HUMILDES - VAMOS MAIS RÁPIDO - SERVIMOS - NOS ADAPTAMOS
-    </div>
-</footer>
-<body>
-    <!-- Elemento de áudio para notificação -->
+<body class="p-4">
+    <!-- Elemento de áudio oculto para notificação -->
     <audio id="notificacaoSom" preload="auto" style="display: none;">
-        <source src="https://cdn.pixabay.com/download/audio/2022/01/07/audio_455a3917eb.mp3?filename=message-13716.mp3"
-            type="audio/mpeg">
+        <source src="https://cdn.pixabay.com/download/audio/2022/01/07/audio_455a3917eb.mp3?filename=message-13716.mp3" type="audio/mpeg">
     </audio>
-
-    <!-- Seleção de perfil -->
-    <div class="flex justify-center mb-6">
-        <select id="selectPerfil" class="select-perfil">
-            <option value="">-- Selecione o perfil --</option>
-            <option value="expedição">Expedição</option>
-            <option value="volumoso">Equipe Volumoso</option>
-        </select>
-    </div>
-
-    <!-- Layout principal -->
-    <div class="main-layout">
-        <!-- Cabeçalho -->
-        <div class="header-area">
-            <div class="cabecalho">
-                <div class="flex-1 text-left">
-                    <span id="totalPacotes" class="totais-info">Volumetria: 0 Pacotes</span>
-                </div>
-                <div class="flex-1">
-                    EXPEDIÇÃO LM-HUB
-                </div>
-                <div class="flex-1 text-right">
-                    <span id="totalRotas" class="totais-info">Temos 0 para expedir!</span>
-                    <button id="btnConfig" class="btn-config ml-3 hidden">Configurar</button>
-                </div>
-            </div>
+    
+    <div class="max-w-6xl mx-auto">
+        <!-- Seleção de perfil -->
+        <div class="flex justify-center mb-2">
+            <select id="selectPerfil" class="select-perfil">
+                <option value="">-- Selecione o perfil --</option>
+                <option value="expedição">Expedição</option>
+                <option value="volumoso">Equipe Volumoso</option>
+                <option value="admin">Administrador</option>
+            </select>
         </div>
-
-        <!-- Sidebar com Erro de Sorting -->
-        <div class="sidebar-area">
-            <div class="card-erro-sorting">
-                <div class="titulo-erro-sorting">
-                    ERRO DE SORTING
-                </div>
-                <div class="instrucao-erro">
-                    Insira sua rota
-                </div>
-                <input type="text" id="inputErroSorting" class="input-field mb-4"
-                    placeholder="Digite a rota (Ex.: C-10)">
-                <div class="lista-erro-sorting" id="listaErroSorting">
-                    <!-- Lista de erros será adicionada via JavaScript -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Área superior com cards -->
-        <div class="top-area">
-            <!-- Card de seleção de rota -->
-            <div class="card">
-                <div class="titulo-card">
-                    SELECIONE SUA ROTA
-                </div>
-                <div class="flex flex-col items-center">
-                    <input type="text" id="inputRota" class="input-field mb-6" placeholder="Digite a rota (Ex.: C-10)">
-                    <div class="fontalt">
-                        Há <span id="qtdVolumosos" class="volumosos">0</span> volumosos em sua rota!
+        
+        <!-- Layout principal com grid -->
+        <div class="main-layout">
+            <!-- Cabeçalho -->
+            <div class="header-area">
+                <div class="cabecalho flex justify-between items-center">
+                    <div class="w-1/3 text-left pl-4">
+                        <span id="totalPacotes" class="totais-info">Volumetria: 0 Pacotes</span>
                     </div>
-                    <button id="btnSolicitar" class="btn-primary">Solicitar Separação</button>
+                    <div class="w-1/3">
+                        EXPEDIÇÃO LM-HUB
+                    </div>
+                    <div class="w-1/3 text-right pr-4">
+                        <span id="totalRotas" class="totais-info">Temos 0 para expedir!</span>
+                        <button id="btnConfig" class="btn-config hidden">Config</button>
+                    </div>
                 </div>
             </div>
-
-            <!-- Card de pedidos em separação -->
-            <div class="card">
-                <div class="titulo-card">
-                    PEDIDOS EM SEPARAÇÃO
+            
+            <!-- Sidebar com Erro de Sorting -->
+            <div class="sidebar-area">
+                <div class="card-erro-sorting sidebar-card">
+                    <div class="titulo-erro-sorting">
+                        ERRO DE SORTING
+                    </div>
+                    <div class="instrucao-erro">
+                        Insira sua rota
+                    </div>
+                    <input type="text" id="inputErroSorting" class="w-full p-2 rounded mb-3" placeholder="Digite a rota (Ex.: C-10)">
+                    <div class="lista-erro-sorting" id="listaErroSorting">
+                        <!-- Lista de erros será adicionada via JavaScript -->
+                    </div>
                 </div>
-                <table class="tabela-pedidos">
-                    <thead>
-                        <tr>
-                            <th style="width: 33.33%;">ROTA</th>
-                            <th style="width: 33.33%;">QTDE.</th>
-                            <th style="width: 33.33%;">AÇÃO</th>
-                        </tr>
-                    </thead>
-                    <tbody id="listaPedidos">
-                        <!-- Itens serão adicionados via JavaScript -->
-                    </tbody>
-                </table>
             </div>
-        </div>
-
-        <!-- Área inferior com Tabela de Rotas -->
-        <div class="bottom-area">
-            <div class="tabelas-container" id="tabelaRotas">
-                <!-- Tabelas de rotas serão adicionadas aqui -->
+            
+            <!-- Área superior com cards Selecione Rota e Pedidos em Separação -->
+            <div class="top-area">
+                <!-- Card de seleção de rota -->
+                <div class="card">
+                    <div class="titulo-card">
+                        SELECIONE SUA ROTA
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <input type="text" id="inputRota" class="w-full p-2 rounded mb-4" placeholder="Digite a rota (Ex.: C-10)">
+                        <div class="fontalt text-center">
+                            Há <span id="qtdVolumosos" class="volumosos">0 volumosos</span> em sua rota!!
+                        </div>
+                        <button id="btnSolicitar" class="btn-solicitar">Solicitar</button>
+                    </div>
+                </div>
+                
+                <!-- Card de pedidos em separação -->
+                <div class="card">
+                    <div class="titulo-card">
+                        PEDIDOS EM SEPARAÇÃO
+                    </div>
+                    <table class="tabela-pedidos">
+                        <thead>
+                            <tr>
+                                <th style="width: 33.33%;">ROTA</th>
+                                <th style="width: 33.33%;">QTDE.</th>
+                                <th style="width: 33.33%;">AÇÃO</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listaPedidos">
+                            <!-- Itens serão adicionados via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
-            <!-- Status de sincronização -->
-            <div id="statusSincronizacao" class="status-sincronizacao">
-                <span class="sync-indicator" id="syncIndicator"></span>
-                <span id="syncText">Sincronizando dados...</span>
+            
+            <!-- Área inferior com Tabela de Rotas -->
+            <div class="bottom-area">
+                <div class="bg-[#FF6A1A] p-4 rounded-xl overflow-auto">
+                    <!-- As tabelas serão geradas dinamicamente -->
+                    <div id="tabelaRotas" class="tabelas-container">
+                        <!-- Tabelas de rotas serão adicionadas aqui -->
+                    </div>
+                        
+                    <!-- Status de sincronização -->
+                    <div id="statusSincronizacao" class="status-sincronizacao mt-2">
+                        <div class="spinner"></div> Sincronizando dados...
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
+    
     <!-- Modal de senha -->
     <div id="modalSenha">
         <div class="modal-content">
-            <h2 class="text-2xl font-bold mb-6 text-center color-[#334155]">Acesso Restrito</h2>
-            <p class="mb-6 color-[#64748b]">Digite a senha para acessar:</p>
-            <input type="password" id="inputSenha" class="input-field mb-6" placeholder="Digite a senha">
+            <h2 class="text-xl font-bold mb-4 text-center">Acesso Restrito</h2>
+            <p class="mb-4">Digite a senha para acessar:</p>
+            <input type="password" id="inputSenha" class="w-full p-2 border rounded mb-4" placeholder="Digite a senha">
             <input type="hidden" id="perfilAlvo" value="">
-            <div class="flex justify-between gap-4">
-                <button id="btnCancelarSenha"
-                    class="flex-1 bg-gray-400 text-white px-6 py-3 rounded-xl font-semibold transition-all hover:bg-gray-500">Cancelar</button>
-                <button id="btnConfirmarSenha" class="flex-1 btn-primary">Confirmar</button>
+            <div class="flex justify-between">
+                <button id="btnCancelarSenha" class="bg-gray-400 text-white px-4 py-2 rounded font-bold">Cancelar</button>
+                <button id="btnConfirmarSenha" class="bg-[#FF6A1A] text-black px-4 py-2 rounded font-bold">Confirmar</button>
             </div>
         </div>
     </div>
-
+    
     <!-- Modal de configuração de rotas -->
     <div id="modalConfigRotas">
         <div class="config-modal-content">
-            <h2 class="text-2xl font-bold mb-6 text-center color-[#334155]">Configuração de Rotas</h2>
-            <p class="mb-6 color-[#64748b]">Selecione até qual letra haverá rotas na tabela:</p>
-
+            <h2 class="text-xl font-bold mb-4 text-center">Configuração de Rotas</h2>
+            <p class="mb-4">Selecione até qual letra haverá rotas na tabela:</p>
+            
             <div class="checkbox-container" id="configRotasContainer">
                 <!-- Checkboxes serão adicionados via JavaScript -->
             </div>
-
-            <div class="flex justify-between gap-4">
-                <button id="btnCancelarConfig"
-                    class="flex-1 bg-gray-400 text-white px-6 py-3 rounded-xl font-semibold transition-all hover:bg-gray-500">Cancelar</button>
-                <button id="btnSalvarConfig" class="flex-1 btn-primary">Salvar Configuração</button>
+            
+            <div class="flex justify-between mt-4">
+                <button id="btnCancelarConfig" class="bg-gray-400 text-white px-4 py-2 rounded font-bold">Cancelar</button>
+                <button id="btnSalvarConfig" class="bg-[#FF6A1A] text-black px-4 py-2 rounded font-bold">Salvar Configuração</button>
             </div>
         </div>
     </div>
 
     <script>
-        // ===== CONFIGURAÇÕES E VARIÁVEIS GLOBAIS =====
+        // Configurações e variáveis globais
         let dadosRotas = {};
         let dadosTotais = { totalPacotes: 0, totalRotas: 0 };
         let rotasFinalizada = {};
         let listaRotas = [];
         let listaRotasAnterior = [];
         let listaErroSorting = [];
-        let listaErroSortingAnterior = [];
+        let listaErroSortingAnterior = []; // Para persistir erros localmente
         let perfilAtual = "";
-        let configLetraLimite = 'F';
+        let configLetraLimite = 'F'; // Configuração padrão até letra F
         const alfabetoCompleto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         const QTD_ROTAS_POR_LETRA = 16;
-        const URL_WEBAPP = "https://script.google.com/macros/s/AKfycbza0PwlAr9aYz3-6rCvFdmUGaRslI2qAMMnaP14G_48KMwhupr_YZ0WS3d01VDtcbx0rw/exec";
-
-        // Intervalo de atualização otimizado
-        const INTERVALO_ATUALIZACAO = 3000;
-
+        const URL_WEBAPP = "https://script.google.com/macros/s/AKfycbxKaEmyw3So5px6e5g_tLRFN97CcaZhQYbGlloTNsO3r4738gjU4Ec66D8kprh-_TP_cQ/exec";
+        const INTERVALO_ATUALIZACAO = 10000; // Atualiza a cada 10 segundos
         let ultimaAtualizacao = 0;
         let atualizacaoAgendada = null;
         let dadosServidor = null;
         let sincronizando = false;
         let atualizacaoPendente = false;
         let notificacaoAtivada = true;
+
+        // Armazena a ordem cronológica dos pedidos
         let ordemCronologicaPedidos = [];
 
-        // ===== INICIALIZAÇÃO =====
-        document.addEventListener('DOMContentLoaded', function () {
+        // Inicializa a aplicação
+        document.addEventListener('DOMContentLoaded', function() {
             carregarDados(true);
             configurarEventos();
             verificarAutenticacao();
             iniciarSincronizacaoAutomatica();
         });
 
-        // ===== FUNÇÃO DE NOTIFICAÇÃO =====
+        // Função para tocar o som de notificação
         function tocarNotificacao() {
-            if (perfilAtual === 'volumoso') {
+            if (perfilAtual === 'volumoso' || perfilAtual === 'admin') {
                 const audio = document.getElementById('notificacaoSom');
-                if (audio && notificacaoAtivada) {
-                    audio.currentTime = 0;
-                    audio.play().catch(e => console.log("Erro ao tocar notificação:", e));
+                if (audio) {
+                    audio.currentTime = 0; // Reiniciar o áudio
+                    audio.play().catch(e => {
+                        console.error("Erro ao tocar a notificação:", e);
+                        alert("Por favor, permita a reprodução de áudio na página."); // Sugestão para o usuário
+                    });
                 }
             }
         }
 
-        // ===== CARREGAMENTO DE DADOS =====
+        // Função para carregar os dados da planilha
         async function carregarDados(forcarAtualizacao = false) {
             if (sincronizando) return;
-
+            
             const agora = Date.now();
-            const tempoLimiteCache = 2000;
+            const tempoLimiteCache = perfilAtual === 'volumoso' || perfilAtual === 'admin' ? 8000 : 15000;
             if (!forcarAtualizacao && (agora - ultimaAtualizacao < tempoLimiteCache) && Object.keys(dadosRotas).length > 0) {
                 console.log("Usando dados em cache");
                 return Promise.resolve(dadosServidor);
             }
-
+            
             sincronizando = true;
             atualizarStatusSincronizacao(true);
-
+            
             try {
                 const timestamp = new Date().getTime();
                 const resposta = await fetch(`${URL_WEBAPP}?t=${timestamp}`);
-
+                
                 if (!resposta.ok) {
                     throw new Error(`Erro HTTP: ${resposta.status}`);
                 }
-
+                
                 const dados = await resposta.json();
-
+                
                 if (!dados || !dados.rotas) {
                     throw new Error("Dados inválidos recebidos do servidor");
                 }
-
+                
                 console.log("Dados carregados com sucesso:", dados);
                 dadosServidor = dados;
-
-                // Salva dados anteriores para comparação
+                
+                // Armazena os dados antigos para comparação
+                const rotasAnteriores = {...dadosRotas};
+                const rotasFinalizadasAnteriores = {...rotasFinalizada};
+                
+                // Salva a lista anterior para detectar novas rotas
                 listaRotasAnterior = [...listaRotas];
+                
+                // Preserva a lista de erro de sorting local
                 listaErroSortingAnterior = [...listaErroSorting];
-
-                // Atualiza dados locais
+                
+                // Atualiza os dados locais
                 dadosRotas = dados.rotas;
                 dadosTotais = dados.totais;
-
-                // Atualiza rotas finalizadas
+                
+                // Atualiza a lista de rotas finalizadas
                 if (dados.rotasFinalizadas && Array.isArray(dados.rotasFinalizadas)) {
                     rotasFinalizada = {};
                     dados.rotasFinalizadas.forEach(rota => {
                         rotasFinalizada[rota] = true;
                     });
                 }
-
-                // Atualiza lista de pedidos
+                
+                // Atualiza a lista de pedidos em andamento, preservando ordem cronológica
                 if (dados.pedidosEmAndamento && Array.isArray(dados.pedidosEmAndamento)) {
+                    // Mescla com a ordem cronológica local
                     atualizarOrdemCronologica(dados.pedidosEmAndamento);
                     listaRotas = [...dados.pedidosEmAndamento];
                 }
-
-                // Atualiza erros de sorting
+                
+                // Mescla erros de sorting do servidor com os locais
                 if (dados.errosSorting && Array.isArray(dados.errosSorting)) {
-                    const errosAnterior = [...listaErroSorting].sort();
-                    const errosNovos = [...dados.errosSorting].sort();
-
-                    if (JSON.stringify(errosAnterior) !== JSON.stringify(errosNovos)) {
-                        listaErroSorting = [...dados.errosSorting];
-                        console.log("Lista de erros de sorting atualizada");
-                    }
+                    // Mescla com erros locais, removendo duplicatas
+                    const errosServidor = dados.errosSorting;
+                    const errosMesclados = [...new Set([...listaErroSorting, ...errosServidor])];
+                    listaErroSorting = errosMesclados;
                 }
-
+                
+                // Verifica se há novas rotas para notificação
                 verificarNovasRotas();
+                
+                // Atualiza a interface
                 atualizarInterface();
+                
+                // Atualiza timestamp da última atualização
                 ultimaAtualizacao = Date.now();
-
+                
                 return dados;
             } catch (erro) {
                 console.error("Erro ao carregar dados:", erro);
@@ -888,270 +608,118 @@
             }
         }
 
-        // ===== VALIDAÇÃO DE ROTA MELHORADA =====
-        function validarFormatoRota(rota) {
-            // Remove espaços em branco no início e fim
-            rota = rota.trim();
-
-            // Verifica se há espaços no meio da rota
-            if (rota.includes(' ')) {
-                return {
-                    valida: false,
-                    erro: "A rota não pode conter espaços. Formato correto: LETRA-NÚMERO (Ex: C-10)"
-                };
-            }
-
-            // Verifica formato [LETRA]-[NÚMERO de 1 a 16]
-            const rotaRegex = /^[A-L]-([1-9]|1[0-6])$/;
-            if (!rotaRegex.test(rota)) {
-                return {
-                    valida: false,
-                    erro: "Formato de rota inválido! Use: LETRA-NÚMERO\nSomente letras A-L e números 1-16 são permitidos.\nExemplos válidos: C-10, A-5, L-16"
-                };
-            }
-
-            return { valida: true, rota: rota };
-        }
-
-        // ===== VERIFICAÇÃO DE ROTA MELHORADA =====
-        function verificarRota(rotaInput) {
-            const validacao = validarFormatoRota(rotaInput.toUpperCase());
-
-            if (!validacao.valida) {
-                document.getElementById('qtdVolumosos').textContent = "0";
-                return;
-            }
-
-            const rota = validacao.rota;
-
-            if (dadosRotas[rota]) {
-                document.getElementById('qtdVolumosos').textContent = dadosRotas[rota];
-            } else {
-                document.getElementById('qtdVolumosos').textContent = "0";
-            }
-        }
-
-        // ===== ADICIONAR PEDIDO MELHORADO =====
-        async function adicionarPedido() {
-            if (perfilAtual === '') {
-                alert("Selecione um perfil para continuar.");
-                return;
-            }
-
-            const input = document.getElementById('inputRota');
-            const rotaInput = input.value;
-
-            // Validação de formato
-            const validacao = validarFormatoRota(rotaInput.toUpperCase());
-            if (!validacao.valida) {
-                alert(validacao.erro);
-                input.focus();
-                return;
-            }
-
-            const rota = validacao.rota;
-
-            // Verifica se a rota existe no sistema
-            if (!dadosRotas.hasOwnProperty(rota)) {
-                alert("Rota não encontrada no sistema!\nVerifique se a rota digitada está correta.");
-                input.focus();
-                return;
-            }
-
-            // Verifica se há volumosos na rota
-            if (!dadosRotas[rota] || dadosRotas[rota] === 0) {
-                alert(`A rota ${rota} não possui volumosos para separação.`);
-                input.focus();
-                return;
-            }
-
-            // Verifica se a rota já foi finalizada
-            if (rotasFinalizada[rota]) {
-                alert("Esta rota já foi marcada como SAIU e não pode ser solicitada novamente!");
-                return;
-            }
-
-            // Verifica se já está na lista
-            if (listaRotas.includes(rota)) {
-                alert("Esta rota já está na lista de separação!");
-                return;
-            }
-
-            const btnSolicitar = document.getElementById('btnSolicitar');
-            btnSolicitar.disabled = true;
-            btnSolicitar.textContent = "Processando...";
-
-            try {
-                ordemCronologicaPedidos.push(rota);
-                listaRotas.push(rota);
-                atualizarListaPedidos();
-
-                const resposta = await fetch(URL_WEBAPP, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        acao: "adicionarPedido",
-                        rota: rota
-                    })
-                });
-
-                const resultado = await resposta.json();
-
-                if (resultado.status !== "sucesso") {
-                    console.error("Erro ao registrar pedido:", resultado.mensagem);
+        // Função para atualizar ordem cronológica dos pedidos
+        function atualizarOrdemCronologica(pedidosServidor) {
+            // Adiciona novos pedidos ao final da lista cronológica
+            pedidosServidor.forEach(rota => {
+                if (!ordemCronologicaPedidos.includes(rota)) {
+                    ordemCronologicaPedidos.push(rota);
                 }
-
-                input.value = "";
-                document.getElementById('qtdVolumosos').textContent = "0";
-                solicitarAtualizacao();
-            } catch (erro) {
-                console.error("Erro ao enviar pedido para o servidor:", erro);
-                alert("Ocorreu um erro ao adicionar o pedido. Tente novamente.");
-            } finally {
-                btnSolicitar.disabled = false;
-                btnSolicitar.textContent = "Solicitar Separação";
-            }
-        }
-
-        // ===== ADICIONAR ERRO DE SORTING MELHORADO =====
-        async function adicionarErroSorting() {
-            if (perfilAtual === '') {
-                alert("Selecione um perfil para continuar.");
-                return;
-            }
-
-            const input = document.getElementById('inputErroSorting');
-            const rotaInput = input.value;
-
-            // Validação de formato
-            const validacao = validarFormatoRota(rotaInput.toUpperCase());
-            if (!validacao.valida) {
-                alert(validacao.erro);
-                input.focus();
-                return;
-            }
-
-            const rota = validacao.rota;
-
-            if (listaErroSorting.includes(rota)) {
-                alert("Esta rota já está na lista de erros de sorting!");
-                return;
-            }
-
-            try {
-                listaErroSorting.push(rota);
-                atualizarListaErroSorting();
-
-                const resposta = await fetch(URL_WEBAPP, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        acao: "adicionarErroSorting",
-                        rota: rota
-                    })
-                });
-
-                const resultado = await resposta.json();
-
-                if (resultado.status !== "sucesso") {
-                    console.error("Erro ao registrar erro de sorting:", resultado.mensagem);
-                }
-
-                input.value = "";
-                solicitarAtualizacao();
-            } catch (erro) {
-                console.error("Erro ao enviar erro de sorting para o servidor:", erro);
-            }
-        }
-
-        // ===== REMOVER ERRO DE SORTING =====
-        async function removerErroSorting(rota) {
-            if (perfilAtual === '') {
-                alert("Selecione um perfil para continuar.");
-                return;
-            }
-
-            if (!confirm(`Deseja remover a rota ${rota} da lista de erros de sorting?`)) {
-                return;
-            }
-
-            try {
-                const index = listaErroSorting.indexOf(rota);
-                if (index > -1) {
-                    listaErroSorting.splice(index, 1);
-                    atualizarListaErroSorting();
-                }
-
-                const resposta = await fetch(URL_WEBAPP, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        acao: "removerErroSorting",
-                        rota: rota
-                    })
-                });
-
-                const resultado = await resposta.json();
-
-                if (resultado.status !== "sucesso") {
-                    console.error("Erro ao remover erro de sorting:", resultado.mensagem);
-                    listaErroSorting.push(rota);
-                    atualizarListaErroSorting();
-                }
-
-                solicitarAtualizacao();
-            } catch (erro) {
-                console.error("Erro ao remover erro de sorting:", erro);
-                listaErroSorting.push(rota);
-                atualizarListaErroSorting();
-            }
-        }
-
-        // ===== ATUALIZAR LISTA DE ERRO DE SORTING =====
-        function atualizarListaErroSorting() {
-            const container = document.getElementById('listaErroSorting');
-            container.innerHTML = '';
-
-            if (listaErroSorting.length === 0) {
-                return;
-            }
-
-            const rotasOrdenadas = [...listaErroSorting].sort();
-
-            rotasOrdenadas.forEach(rota => {
-                const div = document.createElement('div');
-                div.className = 'erro-item';
-                div.innerHTML = `
-                    <span class="erro-item-texto">${rota}</span>
-                    <button class="btn-remover-erro" onclick="removerErroSorting('${rota}')" title="Remover rota">×</button>
-                `;
-                container.appendChild(div);
             });
+            
+            // Remove pedidos que não existem mais no servidor
+            ordemCronologicaPedidos = ordemCronologicaPedidos.filter(rota => 
+                pedidosServidor.includes(rota)
+            );
+        }
+        
+        // Função para verificar se existem novas rotas e notificar
+        function verificarNovasRotas() {
+            if (listaRotasAnterior.length === 0) return;
+            
+            const novasRotas = listaRotas.filter(rota => !listaRotasAnterior.includes(rota));
+            
+            if (novasRotas.length > 0) {
+                console.log("Novas rotas detectadas:", novasRotas);
+                tocarNotificacao();
+            }
         }
 
-        // ===== CONFIGURAR EVENTOS =====
+        // Função para solicitar atualização com debounce
+        function solicitarAtualizacao() {
+            if (atualizacaoPendente) return;
+            atualizacaoPendente = true;
+            
+            setTimeout(() => {
+                carregarDados(true);
+                atualizacaoPendente = false;
+            }, 1000);
+        }
+
+        // Atualiza o status da sincronização na interface
+        function atualizarStatusSincronizacao(ativo) {
+            const statusEl = document.getElementById('statusSincronizacao');
+            if (ativo) {
+                statusEl.innerHTML = '<div class="spinner"></div> Sincronizando dados...';
+            } else {
+                statusEl.innerHTML = 'Última atualização: ' + new Date().toLocaleTimeString();
+            }
+        }
+
+        // Função para iniciar sincronização automática
+        function iniciarSincronizacaoAutomatica() {
+            if (atualizacaoAgendada) {
+                clearInterval(atualizacaoAgendada);
+            }
+            
+            atualizacaoAgendada = setInterval(() => {
+                carregarDados(true);
+            }, INTERVALO_ATUALIZACAO);
+            
+            console.log(`Sincronização automática iniciada. Atualizando a cada ${INTERVALO_ATUALIZACAO/1000} segundos.`);
+        }
+
+        // Função para atualizar toda a interface
+        function atualizarInterface() {
+            atualizarTotais();
+            inicializarTabelasRotas();
+            atualizarListaPedidos();
+            atualizarListaErroSorting();
+        }
+
+        // Função temporária para simular dados
+        function carregarDadosMock() {
+            dadosRotas = {
+                "A-12": 2, "B-12": 1, "B-5": 1, "C-11": 2, "C-15": 1, "C-10": 7,
+                "D-11": 1, "D-12": 3, "D-13": 1, "D-15": 2, "D-16": 2, "D-2": 2,
+                "D-3": 1, "D-4": 7, "D-5": 1, "D-6": 4, "D-7": 4, "D-9": 2,
+                "E-11": 5, "E-12": 2, "E-13": 2, "E-14": 2, "E-15": 2, "E-16": 4,
+                "E-2": 1, "E-3": 3, "F-10": 10, "C-1": 6
+            };
+            
+            dadosTotais = {
+                totalPacotes: 82,
+                totalRotas: 28
+            };
+            
+            listaErroSorting = ["C-5", "B-1", "B-16", "C-10", "F-1"];
+        }
+
         function configurarEventos() {
-            document.getElementById('inputRota').addEventListener('input', function () {
+            document.getElementById('inputRota').addEventListener('input', function() {
                 verificarRota(this.value);
             });
 
-            document.getElementById('btnSolicitar').addEventListener('click', function () {
+            document.getElementById('btnSolicitar').addEventListener('click', function() {
                 adicionarPedido();
             });
 
-            document.getElementById('inputRota').addEventListener('keyup', function (event) {
+            document.getElementById('inputRota').addEventListener('keyup', function(event) {
                 if (event.key === "Enter") {
                     adicionarPedido();
                 }
             });
-
-            document.getElementById('inputErroSorting').addEventListener('keyup', function (event) {
+            
+            document.getElementById('inputErroSorting').addEventListener('keyup', function(event) {
                 if (event.key === "Enter") {
                     adicionarErroSorting();
                 }
             });
-
-            document.getElementById('selectPerfil').addEventListener('change', function () {
+            
+            document.getElementById('selectPerfil').addEventListener('change', function() {
                 const perfil = this.value;
-
-                if (perfil === 'volumoso') {
+                
+                if (perfil === 'volumoso' || perfil === 'admin') {
                     document.getElementById('perfilAlvo').value = perfil;
                     mostrarModalSenha();
                 } else if (perfil === 'expedição') {
@@ -1162,102 +730,81 @@
                     atualizarPermissoes();
                 }
             });
-
+            
             document.getElementById('btnConfirmarSenha').addEventListener('click', validarSenha);
             document.getElementById('btnCancelarSenha').addEventListener('click', cancelarSenha);
-            document.getElementById('inputSenha').addEventListener('keyup', function (event) {
+            document.getElementById('inputSenha').addEventListener('keyup', function(event) {
                 if (event.key === "Enter") {
                     validarSenha();
                 }
             });
-
+            
             document.getElementById('btnConfig').addEventListener('click', mostrarConfiguracaoRotas);
-            document.getElementById('btnCancelarConfig').addEventListener('click', function () {
+            document.getElementById('btnCancelarConfig').addEventListener('click', function() {
                 document.getElementById('modalConfigRotas').style.display = 'none';
             });
             document.getElementById('btnSalvarConfig').addEventListener('click', salvarConfiguracaoRotas);
         }
-
-        async function adicionarRotaErro() {
-            const rotaInput = document.getElementById('rotaErroInput');
-            const rota = rotaInput.value.trim().toUpperCase();
-
-            if (!rota) {
-                alert('Digite uma rota válida!');
-                return;
-            }
-
-            try {
-                const response = await fetch(URL_WEBAPP, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        acao: 'adicionarErroSorting',
-                        rota: rota
-                    })
-                });
-
-                const resultado = await response.json();
-
-                if (resultado.status === 'sucesso') {
-                    rotaInput.value = '';
-                    carregarDados(); // Recarregar dados para atualizar a tela
-                    alert('Rota adicionada aos erros de sorting!');
-                } else {
-                    alert('Erro: ' + resultado.mensagem);
-                }
-            } catch (error) {
-                console.error('Erro ao adicionar rota:', error);
-                alert('Erro ao adicionar rota. Tente novamente.');
-            }
-        }
-
-        // ===== AUTENTICAÇÃO =====
+        
         function verificarAutenticacao() {
             perfilAtual = '';
             atualizarPermissoes();
         }
-
+        
         function atualizarPermissoes() {
-            const acoesVolumoso = document.querySelectorAll('.btn-success, .btn-danger');
+            const acoesVolumoso = document.querySelectorAll('.btn-ok, .btn-x');
             const interfaceCompleta = document.querySelectorAll('#inputRota, #btnSolicitar');
             const btnConfig = document.getElementById('btnConfig');
             const inputErroSorting = document.getElementById('inputErroSorting');
-
-            // Botão de configuração apenas para volumoso
-            if (perfilAtual === 'volumoso') {
+            
+            // Botão de configuração
+            if (perfilAtual === 'admin') {
                 btnConfig.classList.remove('hidden');
+                btnConfig.style.display = 'inline-block';
             } else {
                 btnConfig.classList.add('hidden');
+                btnConfig.style.display = 'none';
             }
-
+            
             if (perfilAtual === '') {
-                acoesVolumoso.forEach(el => el.classList.add('disabled'));
-                interfaceCompleta.forEach(el => el.classList.add('disabled'));
+                acoesVolumoso.forEach(el => {
+                    el.classList.add('disabled');
+                });
+                interfaceCompleta.forEach(el => {
+                    el.classList.add('disabled');
+                });
                 inputErroSorting.classList.add('disabled');
             } else if (perfilAtual === 'expedição') {
-                acoesVolumoso.forEach(el => el.classList.add('disabled'));
-                interfaceCompleta.forEach(el => el.classList.remove('disabled'));
+                // Usuário Expedição - pode solicitar e registrar erros, mas não gerenciar rotas
+                acoesVolumoso.forEach(el => {
+                    el.classList.add('disabled');
+                });
+                interfaceCompleta.forEach(el => {
+                    el.classList.remove('disabled');
+                });
                 inputErroSorting.classList.remove('disabled');
-            } else if (perfilAtual === 'volumoso') {
-                acoesVolumoso.forEach(el => el.classList.remove('disabled'));
-                interfaceCompleta.forEach(el => el.classList.remove('disabled'));
+            } else if (perfilAtual === 'volumoso' || perfilAtual === 'admin') {
+                // Equipe Volumoso ou Admin - acesso completo
+                acoesVolumoso.forEach(el => {
+                    el.classList.remove('disabled');
+                });
+                interfaceCompleta.forEach(el => {
+                    el.classList.remove('disabled');
+                });
                 inputErroSorting.classList.remove('disabled');
             }
         }
-
+        
         function mostrarModalSenha() {
             document.getElementById('modalSenha').style.display = 'flex';
             document.getElementById('inputSenha').value = '';
             document.getElementById('inputSenha').focus();
         }
-
+        
         async function validarSenha() {
             const senha = document.getElementById('inputSenha').value;
             const perfilAlvo = document.getElementById('perfilAlvo').value;
-
+            
             try {
                 const resposta = await fetch(URL_WEBAPP, {
                     method: 'POST',
@@ -1267,31 +814,41 @@
                         perfil: perfilAlvo
                     })
                 });
-
+                
                 const resultado = await resposta.json();
-
+                
                 if (resultado.valida) {
                     perfilAtual = perfilAlvo;
                     document.getElementById('modalSenha').style.display = 'none';
                     atualizarPermissoes();
                 } else {
-                    // Fallback para demonstração
+                    // Fallback para modo de demonstração
                     if (senha === "lmhub" && perfilAlvo === "volumoso") {
                         perfilAtual = 'volumoso';
                         document.getElementById('modalSenha').style.display = 'none';
                         atualizarPermissoes();
                         return;
+                    } else if (senha === "1admin0" && perfilAlvo === "admin") {
+                        perfilAtual = 'admin';
+                        document.getElementById('modalSenha').style.display = 'none';
+                        atualizarPermissoes();
+                        return;
                     }
-
+                    
                     alert('Senha incorreta. Tente novamente.');
                     document.getElementById('inputSenha').value = '';
                     document.getElementById('inputSenha').focus();
                 }
             } catch (erro) {
                 console.error("Erro ao verificar senha:", erro);
-
+                
+                // Fallback para modo de demonstração
                 if (senha === "lmhub" && perfilAlvo === "volumoso") {
                     perfilAtual = 'volumoso';
+                    document.getElementById('modalSenha').style.display = 'none';
+                    atualizarPermissoes();
+                } else if (senha === "1admin0" && perfilAlvo === "admin") {
+                    perfilAtual = 'admin';
                     document.getElementById('modalSenha').style.display = 'none';
                     atualizarPermissoes();
                 } else {
@@ -1301,114 +858,220 @@
                 }
             }
         }
-
+        
         function cancelarSenha() {
             document.getElementById('modalSenha').style.display = 'none';
             document.getElementById('selectPerfil').value = '';
             perfilAtual = '';
             atualizarPermissoes();
         }
-
-        // ===== DEMAIS FUNÇÕES (mantidas iguais com pequenos ajustes) =====
-        function atualizarOrdemCronologica(pedidosServidor) {
-            pedidosServidor.forEach(rota => {
-                if (!ordemCronologicaPedidos.includes(rota)) {
-                    ordemCronologicaPedidos.push(rota);
+        
+        function mostrarConfiguracaoRotas() {
+            const container = document.getElementById('configRotasContainer');
+            container.innerHTML = '';
+            
+            for (let i = 0; i < alfabetoCompleto.length; i++) {
+                const letra = alfabetoCompleto.charAt(i);
+                
+                const div = document.createElement('div');
+                div.className = 'config-letra';
+                div.innerHTML = `
+                    <input type="radio" name="radioLimiteLetra" id="radio-${letra}" value="${letra}" 
+                           ${letra === configLetraLimite ? 'checked' : ''}>
+                    <label for="radio-${letra}">Até ${letra}</label>
+                `;
+                container.appendChild(div);
+            }
+            
+            document.getElementById('modalConfigRotas').style.display = 'flex';
+        }
+        
+        async function salvarConfiguracaoRotas() {
+            const radios = document.getElementsByName('radioLimiteLetra');
+            let letraEscolhida = 'F';
+            
+            for (let i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    letraEscolhida = radios[i].value;
+                    break;
                 }
-            });
-
-            ordemCronologicaPedidos = ordemCronologicaPedidos.filter(rota =>
-                pedidosServidor.includes(rota)
-            );
-        }
-
-        function verificarNovasRotas() {
-            if (listaRotasAnterior.length === 0) return;
-
-            const novasRotas = listaRotas.filter(rota => !listaRotasAnterior.includes(rota));
-
-            if (novasRotas.length > 0) {
-                console.log("Novas rotas detectadas:", novasRotas);
-                tocarNotificacao();
+            }
+            
+            const btnSalvar = document.getElementById('btnSalvarConfig');
+            btnSalvar.disabled = true;
+            btnSalvar.textContent = "Salvando...";
+            
+            try {
+                configLetraLimite = letraEscolhida;
+                document.getElementById('modalConfigRotas').style.display = 'none';
+                
+                // Recria as tabelas de acordo com a nova configuração
+                inicializarTabelasRotas(true);
+                
+                alert("Configuração de rotas salva com sucesso!");
+            } catch (erro) {
+                console.error("Erro ao salvar configuração:", erro);
+                alert("Erro ao salvar configuração!");
+            } finally {
+                btnSalvar.disabled = false;
+                btnSalvar.textContent = "Salvar Configuração";
             }
         }
 
-        function solicitarAtualizacao() {
-            if (atualizacaoPendente) return;
-            atualizacaoPendente = true;
-
-            setTimeout(() => {
-                carregarDados(true);
-                atualizacaoPendente = false;
-            }, 500);
-        }
-
-        function atualizarStatusSincronizacao(ativo) {
-            const indicatorEl = document.getElementById('syncIndicator');
-            const textEl = document.getElementById('syncText');
-
-            if (ativo) {
-                indicatorEl.classList.add('syncing');
-                textEl.textContent = 'Sincronizando...';
+        function verificarRota(rota) {
+            rota = rota.toUpperCase();
+            if (dadosRotas[rota]) {
+                document.getElementById('qtdVolumosos').textContent = dadosRotas[rota] + " volumosos";
             } else {
-                indicatorEl.classList.remove('syncing');
-                textEl.textContent = 'Última atualização: ' + new Date().toLocaleTimeString();
+                document.getElementById('qtdVolumosos').textContent = "0 volumosos";
             }
         }
 
-        function iniciarSincronizacaoAutomatica() {
-            if (atualizacaoAgendada) {
-                clearInterval(atualizacaoAgendada);
+        async function adicionarPedido() {
+            if (perfilAtual === '') {
+                alert("Selecione um perfil para continuar.");
+                return;
             }
-
-            atualizacaoAgendada = setInterval(() => {
-                carregarDados(true);
-            }, INTERVALO_ATUALIZACAO);
-
-            console.log(`Sincronização automática iniciada. Atualizando a cada ${INTERVALO_ATUALIZACAO / 1000} segundos.`);
+            
+            const input = document.getElementById('inputRota');
+            const rota = input.value.toUpperCase();
+            
+            if (!rota || !dadosRotas[rota]) {
+                alert("Rota inválida ou não encontrada!");
+                return;
+            }
+            
+            // Verifica se a rota já foi finalizada
+            if (rotasFinalizada[rota]) {
+                alert("Esta rota já foi marcada como SAIU e não pode ser solicitada novamente!");
+                return;
+            }
+            
+            if (listaRotas.includes(rota)) {
+                alert("Esta rota já está na lista de separação!");
+                return;
+            }
+            
+            const btnSolicitar = document.getElementById('btnSolicitar');
+            btnSolicitar.disabled = true;
+            btnSolicitar.textContent = "Processando...";
+            
+            try {
+                // Adiciona à ordem cronológica local
+                ordemCronologicaPedidos.push(rota);
+                listaRotas.push(rota);
+                
+                atualizarListaPedidos();
+                
+                const resposta = await fetch(URL_WEBAPP, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        acao: "adicionarPedido",
+                        rota: rota
+                    })
+                });
+                
+                const resultado = await resposta.json();
+                
+                if (resultado.status !== "sucesso") {
+                    console.error("Erro ao registrar pedido:", resultado.mensagem);
+                }
+                
+                input.value = "";
+                document.getElementById('qtdVolumosos').textContent = "0 volumosos";
+                
+                solicitarAtualizacao();
+            } catch (erro) {
+                console.error("Erro ao enviar pedido para o servidor:", erro);
+                alert("Ocorreu um erro ao adicionar o pedido. Tente novamente.");
+            } finally {
+                btnSolicitar.disabled = false;
+                btnSolicitar.textContent = "Solicitar";
+            }
         }
 
-        function atualizarInterface() {
-            atualizarTotais();
-            inicializarTabelasRotas();
-            atualizarListaPedidos();
-            atualizarListaErroSorting();
+        async function adicionarErroSorting() {
+            if (perfilAtual === '') {
+                alert("Selecione um perfil para continuar.");
+                return;
+            }
+            
+            const input = document.getElementById('inputErroSorting');
+            let rota = input.value.toUpperCase().trim();
+            
+            const rotaRegex = /^[A-L]-\d{1,2}$/;
+            if (!rotaRegex.test(rota)) {
+                alert("Formato de rota inválido! Use o formato: LETRA-NÚMERO (ex: C-10)\nSomente letras de A até L são permitidas.");
+                return;
+            }
+            
+            if (listaErroSorting.includes(rota)) {
+                alert("Esta rota já está na lista de erros de sorting!");
+                return;
+            }
+            
+            try {
+                listaErroSorting.push(rota);
+                atualizarListaErroSorting();
+                
+                const resposta = await fetch(URL_WEBAPP, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        acao: "adicionarErroSorting",
+                        rota: rota
+                    })
+                });
+                
+                const resultado = await resposta.json();
+                
+                if (resultado.status !== "sucesso") {
+                    console.error("Erro ao registrar erro de sorting:", resultado.mensagem);
+                }
+                
+                input.value = "";
+                
+                solicitarAtualizacao();
+            } catch (erro) {
+                console.error("Erro ao enviar erro de sorting para o servidor:", erro);
+            }
         }
-
-        function carregarDadosMock() {
-            dadosRotas = {
-                "A-12": 2, "B-12": 1, "B-5": 1, "C-11": 2, "C-15": 1, "C-10": 7,
-                "D-11": 1, "D-12": 3, "D-13": 1, "D-15": 2, "D-16": 2, "D-2": 2,
-                "D-3": 1, "D-4": 7, "D-5": 1, "D-6": 4, "D-7": 4, "D-9": 2,
-                "E-11": 5, "E-12": 2, "E-13": 2, "E-14": 2, "E-15": 2, "E-16": 4,
-                "E-2": 1, "E-3": 3, "F-10": 10, "C-1": 6
-            };
-
-            dadosTotais = {
-                totalPacotes: 82,
-                totalRotas: 28
-            };
-
-            listaErroSorting = ["C-5", "B-1", "B-16", "C-10", "F-1"];
+        
+        function atualizarListaErroSorting() {
+            const container = document.getElementById('listaErroSorting');
+            container.innerHTML = '';
+            
+            if (listaErroSorting.length === 0) {
+                return;
+            }
+            
+            const rotasOrdenadas = [...listaErroSorting].sort();
+            
+            rotasOrdenadas.forEach(rota => {
+                const div = document.createElement('div');
+                div.className = 'erro-item';
+                div.textContent = rota;
+                container.appendChild(div);
+            });
         }
 
         async function removerPedido(rota) {
-            if (perfilAtual !== 'volumoso') {
+            if (perfilAtual !== 'volumoso' && perfilAtual !== 'admin') {
                 alert("Acesso restrito para esta operação.");
                 return;
             }
-
+            
             const index = listaRotas.indexOf(rota);
             if (index > -1) {
                 listaRotas.splice(index, 1);
-
+                
+                // Remove da ordem cronológica também
                 const indexCrono = ordemCronologicaPedidos.indexOf(rota);
                 if (indexCrono > -1) {
                     ordemCronologicaPedidos.splice(indexCrono, 1);
                 }
-
+                
                 atualizarListaPedidos();
-
+                
                 try {
                     const resposta = await fetch(URL_WEBAPP, {
                         method: 'POST',
@@ -1417,47 +1080,48 @@
                             rota: rota
                         })
                     });
-
+                    
                     const resultado = await resposta.json();
-
+                    
                     if (resultado.status !== "sucesso") {
                         console.error("Erro ao remover pedido:", resultado.mensagem);
                     }
                 } catch (erro) {
                     console.error("Erro ao enviar remoção para o servidor:", erro);
                 }
-
+                
                 solicitarAtualizacao();
             }
         }
 
         async function finalizarPedido(rota) {
-            if (perfilAtual !== 'volumoso') {
+            if (perfilAtual !== 'volumoso' && perfilAtual !== 'admin') {
                 alert("Acesso restrito para esta operação.");
                 return;
             }
-
+            
             rotasFinalizada[rota] = true;
-
+            
             const celulas = document.querySelectorAll('.celula-rota');
             celulas.forEach(celula => {
                 if (celula.textContent === rota) {
                     celula.parentElement.querySelector('.celula-status').innerHTML = '<div class="marca-saiu">SAIU</div>';
                 }
             });
-
+            
             const index = listaRotas.indexOf(rota);
             if (index > -1) {
                 listaRotas.splice(index, 1);
-
+                
+                // Remove da ordem cronológica também
                 const indexCrono = ordemCronologicaPedidos.indexOf(rota);
                 if (indexCrono > -1) {
                     ordemCronologicaPedidos.splice(indexCrono, 1);
                 }
-
+                
                 atualizarListaPedidos();
             }
-
+            
             try {
                 const resposta = await fetch(URL_WEBAPP, {
                     method: 'POST',
@@ -1466,14 +1130,14 @@
                         rota: rota
                     })
                 });
-
+                
                 const resultado = await resposta.json();
-
+                
                 if (resultado.status !== "sucesso") {
                     alert("Ocorreu um erro ao registrar a saída da rota. Tente novamente.");
                     console.error("Erro ao marcar rota como SAIU:", resultado.mensagem);
                 }
-
+                
                 solicitarAtualizacao();
             } catch (erro) {
                 console.error("Erro ao marcar rota como SAIU:", erro);
@@ -1484,9 +1148,10 @@
         function atualizarListaPedidos() {
             const tbody = document.getElementById('listaPedidos');
             tbody.innerHTML = '';
-
+            
+            // Usar ordem cronológica para exibir os pedidos
             const pedidosOrdenados = ordemCronologicaPedidos.filter(rota => listaRotas.includes(rota));
-
+            
             pedidosOrdenados.forEach(rota => {
                 if (dadosRotas[rota]) {
                     const tr = document.createElement('tr');
@@ -1494,107 +1159,59 @@
                         <td style="text-align: center;">${rota}</td>
                         <td style="text-align: center;">${dadosRotas[rota]}</td>
                         <td style="text-align: center;">
-                            <button class="btn-success inline-block" onclick="finalizarPedido('${rota}')">OK</button>
-                            <button class="btn-danger inline-block ml-1" onclick="removerPedido('${rota}')">X</button>
+                            <button class="btn-ok inline-block" onclick="finalizarPedido('${rota}')">OK</button>
+                            <button class="btn-x inline-block ml-1" onclick="removerPedido('${rota}')">X</button>
                         </td>
                     `;
                     tbody.appendChild(tr);
                 }
             });
-
+            
+            // Reaplica as permissões
             atualizarPermissoes();
         }
-
+        
         function atualizarTotais() {
             document.getElementById('totalPacotes').textContent = `Volumetria: ${dadosTotais.totalPacotes} Pacotes`;
-            document.getElementById('totalRotas').textContent = `Temos ${dadosTotais.totalRotas} para expedir!`;
+            document.getElementById('totalRotas').textContent = `Temos ${dadosTotais.totalRotas} rotas para expedir!`;
         }
 
-        function mostrarConfiguracaoRotas() {
-            const container = document.getElementById('configRotasContainer');
-            container.innerHTML = '';
-
-            for (let i = 0; i < alfabetoCompleto.length; i++) {
-                const letra = alfabetoCompleto.charAt(i);
-
-                const div = document.createElement('div');
-                div.className = 'config-letra';
-                div.innerHTML = `
-                    <input type="radio" name="radioLimiteLetra" id="radio-${letra}" value="${letra}" 
-                           ${letra === configLetraLimite ? 'checked' : ''}>
-                    <label for="radio-${letra}">Até ${letra}</label>
-                `;
-                container.appendChild(div);
-            }
-
-            document.getElementById('modalConfigRotas').style.display = 'flex';
-        }
-
-        async function salvarConfiguracaoRotas() {
-            async function salvarConfiguracao() {
-                const letra = document.getElementById('configLetraSelect').value;
-
-                try {
-                    const response = await fetch(URL_WEBAPP, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            acao: 'salvarConfiguracao',
-                            configuracao: letra
-                        })
-                    });
-
-                    const resultado = await response.json();
-
-                    if (resultado.status === 'sucesso') {
-                        fecharModalConfiguracao();
-                        carregarDados(); // Recarregar dados para atualizar a tabela
-                        alert('Configuração salva com sucesso!');
-                    } else {
-                        alert('Erro: ' + resultado.mensagem);
-                    }
-                } catch (error) {
-                    console.error('Erro ao salvar configuração:', error);
-                    alert('Erro ao salvar configuração. Tente novamente.');
-                }
-            }
-
-            function inicializarTabelasRotas(forcarRecriacao = false) {
-                const container = document.getElementById('tabelaRotas');
-
-                const layoutAnterior = container.getAttribute('data-layout');
-                const layoutAtual = configLetraLimite;
-
-                if (!forcarRecriacao && layoutAnterior === layoutAtual) {
-                    for (let idx = 0; idx <= alfabetoCompleto.indexOf(configLetraLimite); idx++) {
-                        const letra = alfabetoCompleto[idx];
-                        const tbody = document.getElementById(`rotas${letra}`);
-                        if (!tbody) continue;
-
-                        for (let j = 1; j <= QTD_ROTAS_POR_LETRA; j++) {
-                            const rota = `${letra}-${j}`;
-                            const celQtd = tbody.querySelector(`.rota-${letra}-${j} .celula-qtd`);
-                            const celStatus = tbody.querySelector(`.rota-${letra}-${j} .celula-status`);
-
-                            if (celQtd) celQtd.textContent = dadosRotas[rota] || '-';
-                            if (celStatus) {
-                                celStatus.innerHTML = rotasFinalizada[rota] ?
-                                    '<div class="marca-saiu">SAIU</div>' : '';
-                            }
-                        }
-                    }
-                    return;
-                }
-
-                container.innerHTML = '';
-                container.className = 'tabelas-container';
-
+        function inicializarTabelasRotas(forcarRecriacao = false) {
+            const container = document.getElementById('tabelaRotas');
+            
+            const layoutAnterior = container.getAttribute('data-layout');
+            const layoutAtual = configLetraLimite;
+            
+            if (!forcarRecriacao && layoutAnterior === layoutAtual) {
+                // Atualiza apenas os dados das células
                 for (let idx = 0; idx <= alfabetoCompleto.indexOf(configLetraLimite); idx++) {
                     const letra = alfabetoCompleto[idx];
-                    const div = document.createElement('div');
-                    div.innerHTML = `
+                    const tbody = document.getElementById(`rotas${letra}`);
+                    if (!tbody) continue;
+                    
+                    for (let j = 1; j <= QTD_ROTAS_POR_LETRA; j++) {
+                        const rota = `${letra}-${j}`;
+                        const celQtd = tbody.querySelector(`.rota-${letra}-${j} .celula-qtd`);
+                        const celStatus = tbody.querySelector(`.rota-${letra}-${j} .celula-status`);
+                        
+                        if (celQtd) celQtd.textContent = dadosRotas[rota] || '-';
+                        if (celStatus) {
+                            celStatus.innerHTML = rotasFinalizada[rota] ? 
+                                '<div class="marca-saiu">SAIU</div>' : '';
+                        }
+                    }
+                }
+                return;
+            }
+            
+            // Recriação completa
+            container.innerHTML = '';
+            container.className = 'tabelas-container';
+            
+            for (let idx = 0; idx <= alfabetoCompleto.indexOf(configLetraLimite); idx++) {
+                const letra = alfabetoCompleto[idx];
+                const div = document.createElement('div');
+                div.innerHTML = `
                     <table class="tabela-rotas mb-2">
                         <thead>
                             <tr>
@@ -1604,32 +1221,36 @@
                             </tr>
                         </thead>
                         <tbody id="rotas${letra}">
+                            <!-- Linhas serão adicionadas pelo JavaScript -->
                         </tbody>
                     </table>
                 `;
-                    container.appendChild(div);
-
-                    const tbody = div.querySelector('tbody');
-                    let html = '';
-
-                    for (let j = 1; j <= QTD_ROTAS_POR_LETRA; j++) {
-                        const rota = `${letra}-${j}`;
-                        const qtd = dadosRotas[rota] || '-';
-                        const status = rotasFinalizada[rota] ? '<div class="marca-saiu">SAIU</div>' : '';
-
-                        html += `
+                container.appendChild(div);
+                
+                // Preencher linhas da letra
+                const tbody = div.querySelector('tbody');
+                let html = '';
+                
+                for (let j = 1; j <= QTD_ROTAS_POR_LETRA; j++) {
+                    const rota = `${letra}-${j}`;
+                    const qtd = dadosRotas[rota] || '-';
+                    const status = rotasFinalizada[rota] ? '<div class="marca-saiu">SAIU</div>' : '';
+                    
+                    html += `
                         <tr class="rota-${letra}-${j}">
                             <td class="celula-rota">${rota}</td>
                             <td class="celula-qtd">${qtd}</td>
                             <td class="celula-status">${status}</td>
                         </tr>
                     `;
-                    }
-
-                    tbody.innerHTML = html;
                 }
-                container.setAttribute('data-layout', layoutAtual);
-            }}
+                
+                tbody.innerHTML = html;
+            }
+            
+            // Salva o layout atual para comparações futuras
+            container.setAttribute('data-layout', layoutAtual);
+        }
     </script>
 </body>
 </html>
