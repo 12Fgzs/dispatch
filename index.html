@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EXPEDIÇÃO LM-HUB</title>
+    <title> EXPEDIÇÃO LM-HUB </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -11,14 +11,14 @@
         * {
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #39A4AA 0%, #395355 100%);
             color: #334155;
             line-height: 1.6;
         }
-        
+
         /* === LAYOUT PRINCIPAL === */
         .main-layout {
             display: grid;
@@ -33,16 +33,25 @@
             margin: 0 auto;
             padding: 20px;
         }
-        
-        .header-area { grid-area: header; }
-        .sidebar-area { grid-area: sidebar; }
-        .top-area { 
+
+        .header-area {
+            grid-area: header;
+        }
+
+        .sidebar-area {
+            grid-area: sidebar;
+        }
+
+        .top-area {
             grid-area: top;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
-        .bottom-area { grid-area: bottom; }
+
+        .bottom-area {
+            grid-area: bottom;
+        }
 
         /* === CABEÇALHO === */
         .cabecalho {
@@ -58,7 +67,7 @@
             align-items: center;
             justify-content: space-between;
         }
-        
+
         /* === CARDS === */
         .card {
             background: #dbdbdb;
@@ -69,12 +78,12 @@
             transition: all 0.3s ease;
             height: 100%;
         }
-        
+
         .card:hover {
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
             transform: translateY(-2px);
         }
-        
+
         .titulo-card {
             font-weight: 600;
             text-align: center;
@@ -84,7 +93,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        
+
         /* === CARD ERRO DE SORTING ATUALIZADO === */
         .card-erro-sorting {
             background: #dbdbdb;
@@ -97,12 +106,12 @@
             height: 100%;
             transition: all 0.3s ease;
         }
-        
+
         .card-erro-sorting:hover {
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
             transform: translateY(-2px);
         }
-        
+
         .titulo-erro-sorting {
             font-weight: 600;
             text-align: center;
@@ -112,7 +121,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        
+
         .instrucao-erro {
             text-align: center;
             margin-bottom: 16px;
@@ -120,7 +129,7 @@
             color: #64748b;
             font-weight: 500;
         }
-        
+
         .lista-erro-sorting {
             overflow-y: auto;
             flex-grow: 1;
@@ -129,7 +138,7 @@
             gap: 8px;
             max-height: 400px;
         }
-        
+
         .erro-item {
             background: #dbdbdb;
             border: 1px solid #e2e8f0;
@@ -142,12 +151,12 @@
             color: #475569;
             transition: all 0.2s ease;
         }
-        
+
         .erro-item:hover {
             background: #f1f5f9;
             border-color: #FF6600;
         }
-        
+
         /* === BOTÕES === */
         .btn-primary {
             background: linear-gradient(135deg, #FF6600 0%, #e55d00 100%);
@@ -161,16 +170,16 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 16px rgba(255, 102, 0, 0.3);
         }
-        
+
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(255, 102, 0, 0.4);
         }
-        
+
         .btn-primary:active {
             transform: translateY(0);
         }
-        
+
         .btn-success {
             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: white;
@@ -183,12 +192,12 @@
             transition: all 0.2s ease;
             box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
         }
-        
+
         .btn-success:hover {
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
         }
-        
+
         .btn-danger {
             background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
             color: white;
@@ -201,12 +210,12 @@
             transition: all 0.2s ease;
             box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
         }
-        
+
         .btn-danger:hover {
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
         }
-        
+
         .btn-remover-erro {
             background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
             color: white;
@@ -223,12 +232,12 @@
             transition: all 0.2s ease;
             box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
         }
-        
+
         .btn-remover-erro:hover {
             transform: scale(1.1);
             box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
         }
-        
+
         .btn-config {
             background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
             color: white;
@@ -241,12 +250,12 @@
             transition: all 0.2s ease;
             box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
         }
-        
+
         .btn-config:hover {
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
         }
-        
+
         /* === INPUTS === */
         .input-field {
             width: 100%;
@@ -259,18 +268,18 @@
             color: #334155;
             font-weight: 500;
         }
-        
+
         .input-field:focus {
             outline: none;
             border-color: #FF6600;
             box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.1);
         }
-        
+
         .input-field::placeholder {
             color: #94a3b8;
             font-weight: 400;
         }
-        
+
         /* === SELECT === */
         .select-perfil {
             padding: 12px 16px;
@@ -282,13 +291,13 @@
             transition: all 0.3s ease;
             cursor: pointer;
         }
-        
+
         .select-perfil:focus {
             outline: none;
             border-color: #FF6600;
             box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.1);
         }
-        
+
         /* === TABELAS === */
         .tabela-pedidos {
             width: 100%;
@@ -299,7 +308,7 @@
             overflow: hidden;
             box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
         }
-        
+
         .tabela-pedidos th {
             background: linear-gradient(135deg, #FF6600 0%, #e55d00 100%);
             color: white;
@@ -309,7 +318,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        
+
         .tabela-pedidos td {
             padding: 16px 12px;
             border-bottom: 1px solid #f1f5f9;
@@ -317,11 +326,11 @@
             color: #475569;
             font-weight: 500;
         }
-        
+
         .tabela-pedidos tr:hover {
             background: #f8fafc;
         }
-        
+
         .tabela-rotas {
             width: 100%;
             border-collapse: collapse;
@@ -332,7 +341,7 @@
             font-size: 12px;
             box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
         }
-        
+
         .tabela-rotas th {
             background: linear-gradient(135deg, #FF6600 0%, #e55d00 100%);
             color: white;
@@ -342,14 +351,14 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        
+
         .tabela-rotas td {
             padding: 8px 6px;
             border-bottom: 1px solid #f1f5f9;
             font-weight: 500;
             color: #475569;
         }
-        
+
         .marca-saiu {
             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: white;
@@ -361,14 +370,14 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        
+
         /* === ELEMENTOS ESPECÍFICOS === */
         .volumosos {
             color: #FF6600;
             font-weight: 700;
             font-size: 24px;
         }
-        
+
         .totais-info {
             background: white;
             color: #FF6600;
@@ -379,7 +388,7 @@
             box-shadow: 0 2px 8px rgba(255, 102, 0, 0.2);
             border: 2px solid rgba(255, 102, 0, 0.1);
         }
-        
+
         .fontalt {
             text-align: center;
             margin-bottom: 20px;
@@ -387,9 +396,10 @@
             color: #64748b;
             font-weight: 500;
         }
-        
+
         /* === MODAIS === */
-        #modalSenha, #modalConfigRotas {
+        #modalSenha,
+        #modalConfigRotas {
             display: none;
             position: fixed;
             top: 0;
@@ -402,8 +412,9 @@
             justify-content: center;
             align-items: center;
         }
-        
-        .modal-content, .config-modal-content {
+
+        .modal-content,
+        .config-modal-content {
             background: white;
             padding: 32px;
             border-radius: 20px;
@@ -412,19 +423,19 @@
             box-shadow: 0 20px 80px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
+
         .config-modal-content {
             max-height: 90vh;
             overflow-y: auto;
         }
-        
+
         /* === ESTADOS === */
         .disabled {
             opacity: 0.5;
             pointer-events: none;
             filter: grayscale(50%);
         }
-        
+
         /* === INDICADORES === */
         .status-sincronizacao {
             font-size: 12px;
@@ -433,7 +444,7 @@
             margin-top: 16px;
             font-weight: 500;
         }
-        
+
         .sync-indicator {
             display: inline-block;
             width: 8px;
@@ -443,12 +454,12 @@
             margin-right: 8px;
             animation: pulse 2s infinite;
         }
-        
+
         .sync-indicator.syncing {
             background: #FF6600;
             animation: pulse 0.5s infinite;
         }
-        
+
         /* === CONFIGURAÇÕES === */
         .checkbox-container {
             display: flex;
@@ -457,7 +468,7 @@
             justify-content: center;
             margin-bottom: 24px;
         }
-        
+
         .config-letra {
             display: flex;
             align-items: center;
@@ -467,17 +478,17 @@
             border: 2px solid #e2e8f0;
             transition: all 0.2s ease;
         }
-        
+
         .config-letra:hover {
             border-color: #FF6600;
             background: #fef3f0;
         }
-        
+
         .config-letra input[type="radio"] {
             margin-right: 8px;
             accent-color: #FF6600;
         }
-        
+
         /* === LAYOUT RESPONSIVO === */
         .tabelas-container {
             display: grid;
@@ -488,22 +499,37 @@
             border-radius: 16px;
             box-shadow: 0 8px 32px rgba(255, 102, 0, 0.2);
         }
-        
+
         /* === ANIMAÇÕES === */
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
-        .card, .card-erro-sorting {
+
+        .card,
+        .card-erro-sorting {
             animation: fadeIn 0.6s ease-out;
         }
-        
+
         /* === RESPONSIVIDADE === */
         @media (max-width: 1024px) {
             .main-layout {
@@ -515,51 +541,98 @@
                     "bottom";
                 padding: 16px;
             }
-            
+
             .top-area {
                 grid-template-columns: 1fr;
             }
-            
+
             .cabecalho {
                 flex-direction: column;
                 gap: 12px;
                 text-align: center;
             }
         }
-        
+
         @media (max-width: 768px) {
             .tabelas-container {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .cabecalho {
                 font-size: 20px;
                 padding: 16px;
             }
-            
-            .card, .card-erro-sorting {
+
+            .card,
+            .card-erro-sorting {
                 padding: 16px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .tabelas-container {
                 grid-template-columns: 1fr;
             }
-            
+
             .main-layout {
                 padding: 12px;
                 gap: 12px;
             }
         }
+
+        /* Rodapé animado */
+        .footer-marquee {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background: linear-gradient(45deg, #2c3e50, #34495e);
+            color: #ecf0f1;
+            padding: 12px 0;
+            overflow: hidden;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .marquee-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 30s linear infinite;
+            font-weight: bold;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Adicionar espaço para o rodapé */
+        body {
+            padding-bottom: 80px;
+        }
     </style>
 </head>
+<footer class="footer-marquee">
+    <div class="marquee-content">
+        NOS COMPROMETEMOS - PERMANECEMOS HUMILDES - VAMOS MAIS RÁPIDO - SERVIMOS - NOS ADAPTAMOS - NOS COMPROMETEMOS -
+        PERMANECEMOS HUMILDES - VAMOS MAIS RÁPIDO - SERVIMOS - NOS ADAPTAMOS
+    </div>
+</footer>
 <body>
     <!-- Elemento de áudio para notificação -->
     <audio id="notificacaoSom" preload="auto" style="display: none;">
-        <source src="https://cdn.pixabay.com/download/audio/2022/01/07/audio_455a3917eb.mp3?filename=message-13716.mp3" type="audio/mpeg">
+        <source src="https://cdn.pixabay.com/download/audio/2022/01/07/audio_455a3917eb.mp3?filename=message-13716.mp3"
+            type="audio/mpeg">
     </audio>
-    
+
     <!-- Seleção de perfil -->
     <div class="flex justify-center mb-6">
         <select id="selectPerfil" class="select-perfil">
@@ -568,7 +641,7 @@
             <option value="volumoso">Equipe Volumoso</option>
         </select>
     </div>
-    
+
     <!-- Layout principal -->
     <div class="main-layout">
         <!-- Cabeçalho -->
@@ -586,7 +659,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Sidebar com Erro de Sorting -->
         <div class="sidebar-area">
             <div class="card-erro-sorting">
@@ -596,13 +669,14 @@
                 <div class="instrucao-erro">
                     Insira sua rota
                 </div>
-                <input type="text" id="inputErroSorting" class="input-field mb-4" placeholder="Digite a rota (Ex.: C-10)">
+                <input type="text" id="inputErroSorting" class="input-field mb-4"
+                    placeholder="Digite a rota (Ex.: C-10)">
                 <div class="lista-erro-sorting" id="listaErroSorting">
                     <!-- Lista de erros será adicionada via JavaScript -->
                 </div>
             </div>
         </div>
-        
+
         <!-- Área superior com cards -->
         <div class="top-area">
             <!-- Card de seleção de rota -->
@@ -618,7 +692,7 @@
                     <button id="btnSolicitar" class="btn-primary">Solicitar Separação</button>
                 </div>
             </div>
-            
+
             <!-- Card de pedidos em separação -->
             <div class="card">
                 <div class="titulo-card">
@@ -638,13 +712,13 @@
                 </table>
             </div>
         </div>
-        
+
         <!-- Área inferior com Tabela de Rotas -->
         <div class="bottom-area">
             <div class="tabelas-container" id="tabelaRotas">
                 <!-- Tabelas de rotas serão adicionadas aqui -->
             </div>
-            
+
             <!-- Status de sincronização -->
             <div id="statusSincronizacao" class="status-sincronizacao">
                 <span class="sync-indicator" id="syncIndicator"></span>
@@ -652,7 +726,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Modal de senha -->
     <div id="modalSenha">
         <div class="modal-content">
@@ -661,24 +735,26 @@
             <input type="password" id="inputSenha" class="input-field mb-6" placeholder="Digite a senha">
             <input type="hidden" id="perfilAlvo" value="">
             <div class="flex justify-between gap-4">
-                <button id="btnCancelarSenha" class="flex-1 bg-gray-400 text-white px-6 py-3 rounded-xl font-semibold transition-all hover:bg-gray-500">Cancelar</button>
+                <button id="btnCancelarSenha"
+                    class="flex-1 bg-gray-400 text-white px-6 py-3 rounded-xl font-semibold transition-all hover:bg-gray-500">Cancelar</button>
                 <button id="btnConfirmarSenha" class="flex-1 btn-primary">Confirmar</button>
             </div>
         </div>
     </div>
-    
+
     <!-- Modal de configuração de rotas -->
     <div id="modalConfigRotas">
         <div class="config-modal-content">
             <h2 class="text-2xl font-bold mb-6 text-center color-[#334155]">Configuração de Rotas</h2>
             <p class="mb-6 color-[#64748b]">Selecione até qual letra haverá rotas na tabela:</p>
-            
+
             <div class="checkbox-container" id="configRotasContainer">
                 <!-- Checkboxes serão adicionados via JavaScript -->
             </div>
-            
+
             <div class="flex justify-between gap-4">
-                <button id="btnCancelarConfig" class="flex-1 bg-gray-400 text-white px-6 py-3 rounded-xl font-semibold transition-all hover:bg-gray-500">Cancelar</button>
+                <button id="btnCancelarConfig"
+                    class="flex-1 bg-gray-400 text-white px-6 py-3 rounded-xl font-semibold transition-all hover:bg-gray-500">Cancelar</button>
                 <button id="btnSalvarConfig" class="flex-1 btn-primary">Salvar Configuração</button>
             </div>
         </div>
@@ -697,11 +773,11 @@
         let configLetraLimite = 'F';
         const alfabetoCompleto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         const QTD_ROTAS_POR_LETRA = 16;
-        const URL_WEBAPP = "https://script.google.com/macros/s/AKfycbwb4yeXcDiDaXdTtrWggs6Zuq2Z3xV33Zlgu8zT4n_t8nIIibAwJ5fQI5GqLsC5nKoCQg/exec";
-        
+        const URL_WEBAPP = "https://script.google.com/macros/s/AKfycbza0PwlAr9aYz3-6rCvFdmUGaRslI2qAMMnaP14G_48KMwhupr_YZ0WS3d01VDtcbx0rw/exec";
+
         // Intervalo de atualização otimizado
         const INTERVALO_ATUALIZACAO = 3000;
-        
+
         let ultimaAtualizacao = 0;
         let atualizacaoAgendada = null;
         let dadosServidor = null;
@@ -711,7 +787,7 @@
         let ordemCronologicaPedidos = [];
 
         // ===== INICIALIZAÇÃO =====
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             carregarDados(true);
             configurarEventos();
             verificarAutenticacao();
@@ -732,42 +808,42 @@
         // ===== CARREGAMENTO DE DADOS =====
         async function carregarDados(forcarAtualizacao = false) {
             if (sincronizando) return;
-            
+
             const agora = Date.now();
             const tempoLimiteCache = 2000;
             if (!forcarAtualizacao && (agora - ultimaAtualizacao < tempoLimiteCache) && Object.keys(dadosRotas).length > 0) {
                 console.log("Usando dados em cache");
                 return Promise.resolve(dadosServidor);
             }
-            
+
             sincronizando = true;
             atualizarStatusSincronizacao(true);
-            
+
             try {
                 const timestamp = new Date().getTime();
                 const resposta = await fetch(`${URL_WEBAPP}?t=${timestamp}`);
-                
+
                 if (!resposta.ok) {
                     throw new Error(`Erro HTTP: ${resposta.status}`);
                 }
-                
+
                 const dados = await resposta.json();
-                
+
                 if (!dados || !dados.rotas) {
                     throw new Error("Dados inválidos recebidos do servidor");
                 }
-                
+
                 console.log("Dados carregados com sucesso:", dados);
                 dadosServidor = dados;
-                
+
                 // Salva dados anteriores para comparação
                 listaRotasAnterior = [...listaRotas];
                 listaErroSortingAnterior = [...listaErroSorting];
-                
+
                 // Atualiza dados locais
                 dadosRotas = dados.rotas;
                 dadosTotais = dados.totais;
-                
+
                 // Atualiza rotas finalizadas
                 if (dados.rotasFinalizadas && Array.isArray(dados.rotasFinalizadas)) {
                     rotasFinalizada = {};
@@ -775,28 +851,28 @@
                         rotasFinalizada[rota] = true;
                     });
                 }
-                
+
                 // Atualiza lista de pedidos
                 if (dados.pedidosEmAndamento && Array.isArray(dados.pedidosEmAndamento)) {
                     atualizarOrdemCronologica(dados.pedidosEmAndamento);
                     listaRotas = [...dados.pedidosEmAndamento];
                 }
-                
+
                 // Atualiza erros de sorting
                 if (dados.errosSorting && Array.isArray(dados.errosSorting)) {
                     const errosAnterior = [...listaErroSorting].sort();
                     const errosNovos = [...dados.errosSorting].sort();
-                    
+
                     if (JSON.stringify(errosAnterior) !== JSON.stringify(errosNovos)) {
                         listaErroSorting = [...dados.errosSorting];
                         console.log("Lista de erros de sorting atualizada");
                     }
                 }
-                
+
                 verificarNovasRotas();
                 atualizarInterface();
                 ultimaAtualizacao = Date.now();
-                
+
                 return dados;
             } catch (erro) {
                 console.error("Erro ao carregar dados:", erro);
@@ -816,7 +892,7 @@
         function validarFormatoRota(rota) {
             // Remove espaços em branco no início e fim
             rota = rota.trim();
-            
+
             // Verifica se há espaços no meio da rota
             if (rota.includes(' ')) {
                 return {
@@ -824,7 +900,7 @@
                     erro: "A rota não pode conter espaços. Formato correto: LETRA-NÚMERO (Ex: C-10)"
                 };
             }
-            
+
             // Verifica formato [LETRA]-[NÚMERO de 1 a 16]
             const rotaRegex = /^[A-L]-([1-9]|1[0-6])$/;
             if (!rotaRegex.test(rota)) {
@@ -833,21 +909,21 @@
                     erro: "Formato de rota inválido! Use: LETRA-NÚMERO\nSomente letras A-L e números 1-16 são permitidos.\nExemplos válidos: C-10, A-5, L-16"
                 };
             }
-            
+
             return { valida: true, rota: rota };
         }
 
         // ===== VERIFICAÇÃO DE ROTA MELHORADA =====
         function verificarRota(rotaInput) {
             const validacao = validarFormatoRota(rotaInput.toUpperCase());
-            
+
             if (!validacao.valida) {
                 document.getElementById('qtdVolumosos').textContent = "0";
                 return;
             }
-            
+
             const rota = validacao.rota;
-            
+
             if (dadosRotas[rota]) {
                 document.getElementById('qtdVolumosos').textContent = dadosRotas[rota];
             } else {
@@ -861,10 +937,10 @@
                 alert("Selecione um perfil para continuar.");
                 return;
             }
-            
+
             const input = document.getElementById('inputRota');
             const rotaInput = input.value;
-            
+
             // Validação de formato
             const validacao = validarFormatoRota(rotaInput.toUpperCase());
             if (!validacao.valida) {
@@ -872,44 +948,44 @@
                 input.focus();
                 return;
             }
-            
+
             const rota = validacao.rota;
-            
+
             // Verifica se a rota existe no sistema
             if (!dadosRotas.hasOwnProperty(rota)) {
                 alert("Rota não encontrada no sistema!\nVerifique se a rota digitada está correta.");
                 input.focus();
                 return;
             }
-            
+
             // Verifica se há volumosos na rota
             if (!dadosRotas[rota] || dadosRotas[rota] === 0) {
                 alert(`A rota ${rota} não possui volumosos para separação.`);
                 input.focus();
                 return;
             }
-            
+
             // Verifica se a rota já foi finalizada
             if (rotasFinalizada[rota]) {
                 alert("Esta rota já foi marcada como SAIU e não pode ser solicitada novamente!");
                 return;
             }
-            
+
             // Verifica se já está na lista
             if (listaRotas.includes(rota)) {
                 alert("Esta rota já está na lista de separação!");
                 return;
             }
-            
+
             const btnSolicitar = document.getElementById('btnSolicitar');
             btnSolicitar.disabled = true;
             btnSolicitar.textContent = "Processando...";
-            
+
             try {
                 ordemCronologicaPedidos.push(rota);
                 listaRotas.push(rota);
                 atualizarListaPedidos();
-                
+
                 const resposta = await fetch(URL_WEBAPP, {
                     method: 'POST',
                     body: JSON.stringify({
@@ -917,13 +993,13 @@
                         rota: rota
                     })
                 });
-                
+
                 const resultado = await resposta.json();
-                
+
                 if (resultado.status !== "sucesso") {
                     console.error("Erro ao registrar pedido:", resultado.mensagem);
                 }
-                
+
                 input.value = "";
                 document.getElementById('qtdVolumosos').textContent = "0";
                 solicitarAtualizacao();
@@ -942,10 +1018,10 @@
                 alert("Selecione um perfil para continuar.");
                 return;
             }
-            
+
             const input = document.getElementById('inputErroSorting');
             const rotaInput = input.value;
-            
+
             // Validação de formato
             const validacao = validarFormatoRota(rotaInput.toUpperCase());
             if (!validacao.valida) {
@@ -953,18 +1029,18 @@
                 input.focus();
                 return;
             }
-            
+
             const rota = validacao.rota;
-            
+
             if (listaErroSorting.includes(rota)) {
                 alert("Esta rota já está na lista de erros de sorting!");
                 return;
             }
-            
+
             try {
                 listaErroSorting.push(rota);
                 atualizarListaErroSorting();
-                
+
                 const resposta = await fetch(URL_WEBAPP, {
                     method: 'POST',
                     body: JSON.stringify({
@@ -972,13 +1048,13 @@
                         rota: rota
                     })
                 });
-                
+
                 const resultado = await resposta.json();
-                
+
                 if (resultado.status !== "sucesso") {
                     console.error("Erro ao registrar erro de sorting:", resultado.mensagem);
                 }
-                
+
                 input.value = "";
                 solicitarAtualizacao();
             } catch (erro) {
@@ -992,18 +1068,18 @@
                 alert("Selecione um perfil para continuar.");
                 return;
             }
-            
+
             if (!confirm(`Deseja remover a rota ${rota} da lista de erros de sorting?`)) {
                 return;
             }
-            
+
             try {
                 const index = listaErroSorting.indexOf(rota);
                 if (index > -1) {
                     listaErroSorting.splice(index, 1);
                     atualizarListaErroSorting();
                 }
-                
+
                 const resposta = await fetch(URL_WEBAPP, {
                     method: 'POST',
                     body: JSON.stringify({
@@ -1011,15 +1087,15 @@
                         rota: rota
                     })
                 });
-                
+
                 const resultado = await resposta.json();
-                
+
                 if (resultado.status !== "sucesso") {
                     console.error("Erro ao remover erro de sorting:", resultado.mensagem);
                     listaErroSorting.push(rota);
                     atualizarListaErroSorting();
                 }
-                
+
                 solicitarAtualizacao();
             } catch (erro) {
                 console.error("Erro ao remover erro de sorting:", erro);
@@ -1027,18 +1103,18 @@
                 atualizarListaErroSorting();
             }
         }
-        
+
         // ===== ATUALIZAR LISTA DE ERRO DE SORTING =====
         function atualizarListaErroSorting() {
             const container = document.getElementById('listaErroSorting');
             container.innerHTML = '';
-            
+
             if (listaErroSorting.length === 0) {
                 return;
             }
-            
+
             const rotasOrdenadas = [...listaErroSorting].sort();
-            
+
             rotasOrdenadas.forEach(rota => {
                 const div = document.createElement('div');
                 div.className = 'erro-item';
@@ -1052,29 +1128,29 @@
 
         // ===== CONFIGURAR EVENTOS =====
         function configurarEventos() {
-            document.getElementById('inputRota').addEventListener('input', function() {
+            document.getElementById('inputRota').addEventListener('input', function () {
                 verificarRota(this.value);
             });
 
-            document.getElementById('btnSolicitar').addEventListener('click', function() {
+            document.getElementById('btnSolicitar').addEventListener('click', function () {
                 adicionarPedido();
             });
 
-            document.getElementById('inputRota').addEventListener('keyup', function(event) {
+            document.getElementById('inputRota').addEventListener('keyup', function (event) {
                 if (event.key === "Enter") {
                     adicionarPedido();
                 }
             });
-            
-            document.getElementById('inputErroSorting').addEventListener('keyup', function(event) {
+
+            document.getElementById('inputErroSorting').addEventListener('keyup', function (event) {
                 if (event.key === "Enter") {
                     adicionarErroSorting();
                 }
             });
-            
-            document.getElementById('selectPerfil').addEventListener('change', function() {
+
+            document.getElementById('selectPerfil').addEventListener('change', function () {
                 const perfil = this.value;
-                
+
                 if (perfil === 'volumoso') {
                     document.getElementById('perfilAlvo').value = perfil;
                     mostrarModalSenha();
@@ -1086,41 +1162,77 @@
                     atualizarPermissoes();
                 }
             });
-            
+
             document.getElementById('btnConfirmarSenha').addEventListener('click', validarSenha);
             document.getElementById('btnCancelarSenha').addEventListener('click', cancelarSenha);
-            document.getElementById('inputSenha').addEventListener('keyup', function(event) {
+            document.getElementById('inputSenha').addEventListener('keyup', function (event) {
                 if (event.key === "Enter") {
                     validarSenha();
                 }
             });
-            
+
             document.getElementById('btnConfig').addEventListener('click', mostrarConfiguracaoRotas);
-            document.getElementById('btnCancelarConfig').addEventListener('click', function() {
+            document.getElementById('btnCancelarConfig').addEventListener('click', function () {
                 document.getElementById('modalConfigRotas').style.display = 'none';
             });
             document.getElementById('btnSalvarConfig').addEventListener('click', salvarConfiguracaoRotas);
         }
-        
+
+        async function adicionarRotaErro() {
+            const rotaInput = document.getElementById('rotaErroInput');
+            const rota = rotaInput.value.trim().toUpperCase();
+
+            if (!rota) {
+                alert('Digite uma rota válida!');
+                return;
+            }
+
+            try {
+                const response = await fetch(URL_WEBAPP, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        acao: 'adicionarErroSorting',
+                        rota: rota
+                    })
+                });
+
+                const resultado = await response.json();
+
+                if (resultado.status === 'sucesso') {
+                    rotaInput.value = '';
+                    carregarDados(); // Recarregar dados para atualizar a tela
+                    alert('Rota adicionada aos erros de sorting!');
+                } else {
+                    alert('Erro: ' + resultado.mensagem);
+                }
+            } catch (error) {
+                console.error('Erro ao adicionar rota:', error);
+                alert('Erro ao adicionar rota. Tente novamente.');
+            }
+        }
+
         // ===== AUTENTICAÇÃO =====
         function verificarAutenticacao() {
             perfilAtual = '';
             atualizarPermissoes();
         }
-        
+
         function atualizarPermissoes() {
             const acoesVolumoso = document.querySelectorAll('.btn-success, .btn-danger');
             const interfaceCompleta = document.querySelectorAll('#inputRota, #btnSolicitar');
             const btnConfig = document.getElementById('btnConfig');
             const inputErroSorting = document.getElementById('inputErroSorting');
-            
+
             // Botão de configuração apenas para volumoso
             if (perfilAtual === 'volumoso') {
                 btnConfig.classList.remove('hidden');
             } else {
                 btnConfig.classList.add('hidden');
             }
-            
+
             if (perfilAtual === '') {
                 acoesVolumoso.forEach(el => el.classList.add('disabled'));
                 interfaceCompleta.forEach(el => el.classList.add('disabled'));
@@ -1135,17 +1247,17 @@
                 inputErroSorting.classList.remove('disabled');
             }
         }
-        
+
         function mostrarModalSenha() {
             document.getElementById('modalSenha').style.display = 'flex';
             document.getElementById('inputSenha').value = '';
             document.getElementById('inputSenha').focus();
         }
-        
+
         async function validarSenha() {
             const senha = document.getElementById('inputSenha').value;
             const perfilAlvo = document.getElementById('perfilAlvo').value;
-            
+
             try {
                 const resposta = await fetch(URL_WEBAPP, {
                     method: 'POST',
@@ -1155,9 +1267,9 @@
                         perfil: perfilAlvo
                     })
                 });
-                
+
                 const resultado = await resposta.json();
-                
+
                 if (resultado.valida) {
                     perfilAtual = perfilAlvo;
                     document.getElementById('modalSenha').style.display = 'none';
@@ -1170,14 +1282,14 @@
                         atualizarPermissoes();
                         return;
                     }
-                    
+
                     alert('Senha incorreta. Tente novamente.');
                     document.getElementById('inputSenha').value = '';
                     document.getElementById('inputSenha').focus();
                 }
             } catch (erro) {
                 console.error("Erro ao verificar senha:", erro);
-                
+
                 if (senha === "lmhub" && perfilAlvo === "volumoso") {
                     perfilAtual = 'volumoso';
                     document.getElementById('modalSenha').style.display = 'none';
@@ -1189,7 +1301,7 @@
                 }
             }
         }
-        
+
         function cancelarSenha() {
             document.getElementById('modalSenha').style.display = 'none';
             document.getElementById('selectPerfil').value = '';
@@ -1204,17 +1316,17 @@
                     ordemCronologicaPedidos.push(rota);
                 }
             });
-            
-            ordemCronologicaPedidos = ordemCronologicaPedidos.filter(rota => 
+
+            ordemCronologicaPedidos = ordemCronologicaPedidos.filter(rota =>
                 pedidosServidor.includes(rota)
             );
         }
-        
+
         function verificarNovasRotas() {
             if (listaRotasAnterior.length === 0) return;
-            
+
             const novasRotas = listaRotas.filter(rota => !listaRotasAnterior.includes(rota));
-            
+
             if (novasRotas.length > 0) {
                 console.log("Novas rotas detectadas:", novasRotas);
                 tocarNotificacao();
@@ -1224,7 +1336,7 @@
         function solicitarAtualizacao() {
             if (atualizacaoPendente) return;
             atualizacaoPendente = true;
-            
+
             setTimeout(() => {
                 carregarDados(true);
                 atualizacaoPendente = false;
@@ -1234,7 +1346,7 @@
         function atualizarStatusSincronizacao(ativo) {
             const indicatorEl = document.getElementById('syncIndicator');
             const textEl = document.getElementById('syncText');
-            
+
             if (ativo) {
                 indicatorEl.classList.add('syncing');
                 textEl.textContent = 'Sincronizando...';
@@ -1248,12 +1360,12 @@
             if (atualizacaoAgendada) {
                 clearInterval(atualizacaoAgendada);
             }
-            
+
             atualizacaoAgendada = setInterval(() => {
                 carregarDados(true);
             }, INTERVALO_ATUALIZACAO);
-            
-            console.log(`Sincronização automática iniciada. Atualizando a cada ${INTERVALO_ATUALIZACAO/1000} segundos.`);
+
+            console.log(`Sincronização automática iniciada. Atualizando a cada ${INTERVALO_ATUALIZACAO / 1000} segundos.`);
         }
 
         function atualizarInterface() {
@@ -1271,12 +1383,12 @@
                 "E-11": 5, "E-12": 2, "E-13": 2, "E-14": 2, "E-15": 2, "E-16": 4,
                 "E-2": 1, "E-3": 3, "F-10": 10, "C-1": 6
             };
-            
+
             dadosTotais = {
                 totalPacotes: 82,
                 totalRotas: 28
             };
-            
+
             listaErroSorting = ["C-5", "B-1", "B-16", "C-10", "F-1"];
         }
 
@@ -1285,18 +1397,18 @@
                 alert("Acesso restrito para esta operação.");
                 return;
             }
-            
+
             const index = listaRotas.indexOf(rota);
             if (index > -1) {
                 listaRotas.splice(index, 1);
-                
+
                 const indexCrono = ordemCronologicaPedidos.indexOf(rota);
                 if (indexCrono > -1) {
                     ordemCronologicaPedidos.splice(indexCrono, 1);
                 }
-                
+
                 atualizarListaPedidos();
-                
+
                 try {
                     const resposta = await fetch(URL_WEBAPP, {
                         method: 'POST',
@@ -1305,16 +1417,16 @@
                             rota: rota
                         })
                     });
-                    
+
                     const resultado = await resposta.json();
-                    
+
                     if (resultado.status !== "sucesso") {
                         console.error("Erro ao remover pedido:", resultado.mensagem);
                     }
                 } catch (erro) {
                     console.error("Erro ao enviar remoção para o servidor:", erro);
                 }
-                
+
                 solicitarAtualizacao();
             }
         }
@@ -1324,28 +1436,28 @@
                 alert("Acesso restrito para esta operação.");
                 return;
             }
-            
+
             rotasFinalizada[rota] = true;
-            
+
             const celulas = document.querySelectorAll('.celula-rota');
             celulas.forEach(celula => {
                 if (celula.textContent === rota) {
                     celula.parentElement.querySelector('.celula-status').innerHTML = '<div class="marca-saiu">SAIU</div>';
                 }
             });
-            
+
             const index = listaRotas.indexOf(rota);
             if (index > -1) {
                 listaRotas.splice(index, 1);
-                
+
                 const indexCrono = ordemCronologicaPedidos.indexOf(rota);
                 if (indexCrono > -1) {
                     ordemCronologicaPedidos.splice(indexCrono, 1);
                 }
-                
+
                 atualizarListaPedidos();
             }
-            
+
             try {
                 const resposta = await fetch(URL_WEBAPP, {
                     method: 'POST',
@@ -1354,14 +1466,14 @@
                         rota: rota
                     })
                 });
-                
+
                 const resultado = await resposta.json();
-                
+
                 if (resultado.status !== "sucesso") {
                     alert("Ocorreu um erro ao registrar a saída da rota. Tente novamente.");
                     console.error("Erro ao marcar rota como SAIU:", resultado.mensagem);
                 }
-                
+
                 solicitarAtualizacao();
             } catch (erro) {
                 console.error("Erro ao marcar rota como SAIU:", erro);
@@ -1372,9 +1484,9 @@
         function atualizarListaPedidos() {
             const tbody = document.getElementById('listaPedidos');
             tbody.innerHTML = '';
-            
+
             const pedidosOrdenados = ordemCronologicaPedidos.filter(rota => listaRotas.includes(rota));
-            
+
             pedidosOrdenados.forEach(rota => {
                 if (dadosRotas[rota]) {
                     const tr = document.createElement('tr');
@@ -1389,10 +1501,10 @@
                     tbody.appendChild(tr);
                 }
             });
-            
+
             atualizarPermissoes();
         }
-        
+
         function atualizarTotais() {
             document.getElementById('totalPacotes').textContent = `Volumetria: ${dadosTotais.totalPacotes} Pacotes`;
             document.getElementById('totalRotas').textContent = `Temos ${dadosTotais.totalRotas} para expedir!`;
@@ -1401,10 +1513,10 @@
         function mostrarConfiguracaoRotas() {
             const container = document.getElementById('configRotasContainer');
             container.innerHTML = '';
-            
+
             for (let i = 0; i < alfabetoCompleto.length; i++) {
                 const letra = alfabetoCompleto.charAt(i);
-                
+
                 const div = document.createElement('div');
                 div.className = 'config-letra';
                 div.innerHTML = `
@@ -1414,75 +1526,75 @@
                 `;
                 container.appendChild(div);
             }
-            
+
             document.getElementById('modalConfigRotas').style.display = 'flex';
         }
-        
+
         async function salvarConfiguracaoRotas() {
-            const radios = document.getElementsByName('radioLimiteLetra');
-            let letraEscolhida = 'F';
-            
-            for (let i = 0; i < radios.length; i++) {
-                if (radios[i].checked) {
-                    letraEscolhida = radios[i].value;
-                    break;
+            async function salvarConfiguracao() {
+                const letra = document.getElementById('configLetraSelect').value;
+
+                try {
+                    const response = await fetch(URL_WEBAPP, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            acao: 'salvarConfiguracao',
+                            configuracao: letra
+                        })
+                    });
+
+                    const resultado = await response.json();
+
+                    if (resultado.status === 'sucesso') {
+                        fecharModalConfiguracao();
+                        carregarDados(); // Recarregar dados para atualizar a tabela
+                        alert('Configuração salva com sucesso!');
+                    } else {
+                        alert('Erro: ' + resultado.mensagem);
+                    }
+                } catch (error) {
+                    console.error('Erro ao salvar configuração:', error);
+                    alert('Erro ao salvar configuração. Tente novamente.');
                 }
             }
-            
-            const btnSalvar = document.getElementById('btnSalvarConfig');
-            btnSalvar.disabled = true;
-            btnSalvar.textContent = "Salvando...";
-            
-            try {
-                configLetraLimite = letraEscolhida;
-                document.getElementById('modalConfigRotas').style.display = 'none';
-                
-                inicializarTabelasRotas(true);
-                
-                alert("Configuração de rotas salva com sucesso!");
-            } catch (erro) {
-                console.error("Erro ao salvar configuração:", erro);
-                alert("Erro ao salvar configuração!");
-            } finally {
-                btnSalvar.disabled = false;
-                btnSalvar.textContent = "Salvar Configuração";
-            }
-        }
 
-        function inicializarTabelasRotas(forcarRecriacao = false) {
-            const container = document.getElementById('tabelaRotas');
-            
-            const layoutAnterior = container.getAttribute('data-layout');
-            const layoutAtual = configLetraLimite;
-            
-            if (!forcarRecriacao && layoutAnterior === layoutAtual) {
-                for (let idx = 0; idx <= alfabetoCompleto.indexOf(configLetraLimite); idx++) {
-                    const letra = alfabetoCompleto[idx];
-                    const tbody = document.getElementById(`rotas${letra}`);
-                    if (!tbody) continue;
-                    
-                    for (let j = 1; j <= QTD_ROTAS_POR_LETRA; j++) {
-                        const rota = `${letra}-${j}`;
-                        const celQtd = tbody.querySelector(`.rota-${letra}-${j} .celula-qtd`);
-                        const celStatus = tbody.querySelector(`.rota-${letra}-${j} .celula-status`);
-                        
-                        if (celQtd) celQtd.textContent = dadosRotas[rota] || '-';
-                        if (celStatus) {
-                            celStatus.innerHTML = rotasFinalizada[rota] ? 
-                                '<div class="marca-saiu">SAIU</div>' : '';
+            function inicializarTabelasRotas(forcarRecriacao = false) {
+                const container = document.getElementById('tabelaRotas');
+
+                const layoutAnterior = container.getAttribute('data-layout');
+                const layoutAtual = configLetraLimite;
+
+                if (!forcarRecriacao && layoutAnterior === layoutAtual) {
+                    for (let idx = 0; idx <= alfabetoCompleto.indexOf(configLetraLimite); idx++) {
+                        const letra = alfabetoCompleto[idx];
+                        const tbody = document.getElementById(`rotas${letra}`);
+                        if (!tbody) continue;
+
+                        for (let j = 1; j <= QTD_ROTAS_POR_LETRA; j++) {
+                            const rota = `${letra}-${j}`;
+                            const celQtd = tbody.querySelector(`.rota-${letra}-${j} .celula-qtd`);
+                            const celStatus = tbody.querySelector(`.rota-${letra}-${j} .celula-status`);
+
+                            if (celQtd) celQtd.textContent = dadosRotas[rota] || '-';
+                            if (celStatus) {
+                                celStatus.innerHTML = rotasFinalizada[rota] ?
+                                    '<div class="marca-saiu">SAIU</div>' : '';
+                            }
                         }
                     }
+                    return;
                 }
-                return;
-            }
-            
-            container.innerHTML = '';
-            container.className = 'tabelas-container';
-            
-            for (let idx = 0; idx <= alfabetoCompleto.indexOf(configLetraLimite); idx++) {
-                const letra = alfabetoCompleto[idx];
-                const div = document.createElement('div');
-                div.innerHTML = `
+
+                container.innerHTML = '';
+                container.className = 'tabelas-container';
+
+                for (let idx = 0; idx <= alfabetoCompleto.indexOf(configLetraLimite); idx++) {
+                    const letra = alfabetoCompleto[idx];
+                    const div = document.createElement('div');
+                    div.innerHTML = `
                     <table class="tabela-rotas mb-2">
                         <thead>
                             <tr>
@@ -1495,30 +1607,29 @@
                         </tbody>
                     </table>
                 `;
-                container.appendChild(div);
-                
-                const tbody = div.querySelector('tbody');
-                let html = '';
-                
-                for (let j = 1; j <= QTD_ROTAS_POR_LETRA; j++) {
-                    const rota = `${letra}-${j}`;
-                    const qtd = dadosRotas[rota] || '-';
-                    const status = rotasFinalizada[rota] ? '<div class="marca-saiu">SAIU</div>' : '';
-                    
-                    html += `
+                    container.appendChild(div);
+
+                    const tbody = div.querySelector('tbody');
+                    let html = '';
+
+                    for (let j = 1; j <= QTD_ROTAS_POR_LETRA; j++) {
+                        const rota = `${letra}-${j}`;
+                        const qtd = dadosRotas[rota] || '-';
+                        const status = rotasFinalizada[rota] ? '<div class="marca-saiu">SAIU</div>' : '';
+
+                        html += `
                         <tr class="rota-${letra}-${j}">
                             <td class="celula-rota">${rota}</td>
                             <td class="celula-qtd">${qtd}</td>
                             <td class="celula-status">${status}</td>
                         </tr>
                     `;
+                    }
+
+                    tbody.innerHTML = html;
                 }
-                
-                tbody.innerHTML = html;
-            }
-            
-            container.setAttribute('data-layout', layoutAtual);
-        }
+                container.setAttribute('data-layout', layoutAtual);
+            }}
     </script>
 </body>
 </html>
